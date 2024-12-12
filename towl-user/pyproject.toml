@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "towl-user"
+version = "1.19.0"
+description = "Towl OWL - user interface"
+authors = ["Pawel Wieczorek <pwieczorek@habana.ai>"]
+license = "LICENSE"
+readme = "README.md"
+packages = [ { include = "towl" } ]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+rich-click = "^1.7.3"
+pydantic = "^2.6.3"
+intervaltree = "^3.1.0"
+typeguard = "^4.1.5"
+tqdm = "^4.66.5"
+pandas = "^2.2.2"
+itables = "^2.1.4"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

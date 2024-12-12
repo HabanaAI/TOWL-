@@ -1,0 +1,1093 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>towl-db.towl.db.store.sql API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>towl-db.towl.db.store.sql</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">################################################################################
+# Copyright 2024 Intel Corporation
+#
+# Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+################################################################################
+
+class Initialization:
+    create_tables = &#34;&#34;&#34;
+        CREATE TABLE meta
+            ( version INTEGER
+            )
+        ;
+
+        CREATE TABLE event_kind
+            ( ident INTEGER PRIMARY KEY
+            , name TEXT NOT NULL
+            )
+        ;
+        
+
+        CREATE TABLE events 
+            ( ident INTEGER PRIMARY KEY
+            , timestamp TIME NOT NULL
+            , tid INTEGER
+            , kind INTEGER NOT NULL
+            , reference INTEGER NOT NULL
+            , FOREIGN KEY(kind) REFERENCES event_kind(ident)
+            )
+        ;
+
+        CREATE TABLE data_buffers
+            ( ident INTEGER PRIMARY KEY
+            , addr INTEGER NOT NULL
+            , size INTEGER NOT NULL
+            , meta TEXT NOT NULL
+            , unknown BOOLEAN NOT NULL
+            , event_malloc INTEGER
+            , event_free INTEGER
+            , event_first_launch INTEGER
+            , event_last_launch INTEGER
+            )
+        ;
+
+        CREATE TABLE events_devmem_buf
+            ( ident INTEGER PRIMARY KEY
+            , buffer_ident INTEGER NOT NULL
+            , is_allocation BOOLEAN NOT NULL
+            , FOREIGN KEY(buffer_ident) REFERENCES data_buffers(ident)
+            )
+        ;
+
+        CREATE TABLE events_devmem_summary
+            ( ident INTEGER PRIMARY KEY
+            , used INTEGER NOT NULL
+            , workspace INTEGER NOT NULL
+            , persistent INTEGER NOT NULL
+            , tag TEXT NOT NULL
+            )
+        ;
+
+        CREATE TABLE data_launches
+            ( ident INTEGER PRIMARY KEY
+            , workspace INTEGER NOT NULL
+            , handle INTEGER NOT NULL
+            , recipe_name TEXT NOT NULL
+            , meta TEXT NOT NULL
+            , event_launch INTEGER
+            , event_finished INTEGER
+            )
+        ;
+
+        CREATE TABLE data_launches_bufs
+            ( launch_ident INTEGER NOT NULL
+            , buffer_ident INTEGER NOT NULL
+            , [index] INTEGER NOT NULL
+            , offset INTEGER NOT NULL
+            , synapse_name TEXT
+            , FOREIGN KEY (launch_ident) REFERENCES data_launches(ident)
+            , FOREIGN KEY (buffer_ident) REFERENCES data_buffers(ident)
+            )
+        ;
+
+        CREATE TABLE events_recipe_launch
+            ( ident INTEGER PRIMARY KEY
+            , launch_ident INTEGER NOT NULL
+            , FOREIGN KEY (launch_ident) REFERENCES data_launches(ident)
+            )
+        ;
+
+        CREATE TABLE events_pythonlog
+            ( ident INTEGER PRIMARY KEY
+            , command TEXT
+            , message TEXT
+            , funcname TEXT
+            , filename TEXT
+            , lineno INT
+            , content TEXT
+            , mark_id INT
+            )
+        ;
+    &#34;&#34;&#34;
+
+    create_views = &#34;&#34;&#34;
+        CREATE VIEW view_launches AS
+        SELECT events.ident AS event_ident, data_launches.*
+        FROM events
+        INNER JOIN data_launches
+            ON events.reference = data_launches.ident
+            AND events.kind = 2
+        ORDER BY event_ident
+        ;
+
+        CREATE VIEW view_pythonlog AS
+        SELECT events.ident AS event_ident, events_pythonlog.*
+        FROM events
+        INNER JOIN events_pythonlog
+            ON events.reference = events_pythonlog.ident
+            AND events.kind = 4
+        ORDER BY event_ident
+        ;
+
+        CREATE VIEW view_devmem_summary AS
+        SELECT events.ident as event_ident, events_devmem_summary.*
+        FROM events
+        INNER JOIN events_devmem_summary
+            ON events.reference = events_devmem_summary.ident
+            AND events.kind = 1
+        ORDER BY event_ident
+        ;
+
+        CREATE VIEW view_devmem_buf AS
+        SELECT events.ident as event_ident, events_devmem_buf.is_allocation, data_buffers.*
+        FROM events
+        INNER JOIN events_devmem_buf
+            ON events.reference = events_devmem_buf.ident
+            AND events.kind = 0
+        INNER JOIN data_buffers
+            ON data_buffers.ident == events_devmem_buf.buffer_ident
+        ORDER BY event_ident
+        ;
+
+        CREATE VIEW view_launches_bufs AS
+        SELECT 
+            data_launches_bufs.launch_ident,
+            data_launches_bufs.offset,
+            data_launches_bufs.[index],
+            data_launches_bufs.synapse_name,
+            data_buffers.ident,
+            data_buffers.addr, data_buffers.size,
+            data_buffers.unknown, data_buffers.meta,
+            data_buffers.event_malloc, data_buffers.event_free,
+            data_buffers.event_first_launch, data_buffers.event_last_launch
+        FROM
+            data_launches_bufs
+        INNER JOIN data_buffers
+            ON data_buffers.ident = data_launches_bufs.buffer_ident
+        ORDER BY [index]
+        ;
+
+        CREATE VIEW view_events AS
+        SELECT
+            events.ident as event_ident,
+            events.tid,
+            events.timestamp,
+            event_kind.name
+        FROM
+            events
+        INNER JOIN event_kind
+            ON events.kind = event_kind.ident
+        ORDER BY events.ident
+        ;
+    &#34;&#34;&#34;
+
+    insert_version = &#34;&#34;&#34;
+        INSERT INTO meta
+            (version)
+        VALUES
+            (20240206)
+        ;
+    &#34;&#34;&#34;
+
+    insert_enums = &#34;&#34;&#34;
+        INSERT INTO event_kind
+            (ident, name)
+        VALUES
+            (0, &#39;devmem_buf&#39;),
+            (1, &#39;devmem_summary&#39;),
+            (2, &#39;recipe_launch&#39;),
+            (3, &#39;recipe_finished&#39;),
+            (4, &#39;python&#39;)
+        ;
+    &#34;&#34;&#34;
+
+    cleanup = &#34;&#34;&#34;
+        VACUUM;
+        PRAGMA vacuum;
+        PRAGMA optimize;
+    &#34;&#34;&#34;
+
+
+class Opening:
+    read_version = &#34;&#34;&#34;
+        SELECT version from meta
+    &#34;&#34;&#34;
+
+    xconfigure = &#34;&#34;&#34;
+        PRAGMA foreign_keys = ON;
+        PRAGMA synchronous = OFF;
+        PRAGMA journal_mode = OFF;
+    &#34;&#34;&#34;
+
+    configure = &#34;&#34;&#34;
+        PRAGMA foreign_keys = ON;
+    &#34;&#34;&#34;
+
+    count_events = &#34;&#34;&#34;
+        SELECT COUNT(*) from events
+    &#34;&#34;&#34;
+
+
+class EventsInserting:
+    insert_devmem_summary = &#34;&#34;&#34;
+        INSERT INTO events_devmem_summary
+            (ident, used, workspace, persistent, tag)
+        VALUES
+            (:ident, :used, :workspace, :persistent, :tag)
+    &#34;&#34;&#34;
+
+    insert_devmem_buf = &#34;&#34;&#34;
+        INSERT INTO events_devmem_buf
+            (ident, buffer_ident, is_allocation)
+        VALUES
+            (:ident, :buffer_ident, :is_allocation)
+    &#34;&#34;&#34;
+
+    insert_event = &#34;&#34;&#34;
+        INSERT INTO events
+            (ident, timestamp, tid, kind, reference)
+        VALUES
+            (:ident, :timestamp, :tid, :kind, :reference)
+    &#34;&#34;&#34;
+
+
+class Buffers:
+    insert_buffer = &#34;&#34;&#34;
+        INSERT INTO data_buffers
+            (ident, addr, size, event_malloc, event_free, event_first_launch, event_last_launch, unknown, meta)
+        VALUES
+            (:ident, :addr, :size, :event_malloc, :event_free, :event_first_launch, :event_last_launch, :unknown, :meta)
+    &#34;&#34;&#34;
+
+    query_buffers = &#34;&#34;&#34;
+        SELECT ident, addr, size, meta, unknown, event_malloc, event_free, event_first_launch, event_last_launch FROM data_buffers
+    &#34;&#34;&#34;
+
+    update_buffer_events = &#34;&#34;&#34;
+        UPDATE data_buffers
+        SET event_malloc = :event_malloc, event_free = :event_free, event_first_launch = :event_first_launch, event_last_launch = :event_last_launch
+        WHERE ident = :ident
+    &#34;&#34;&#34;
+
+    update_buffer_meta = &#34;&#34;&#34;
+        UPDATE data_buffers
+        SET meta = :meta
+        WHERE ident = :ident
+    &#34;&#34;&#34;
+
+
+class Launches:
+    insert_launch = &#34;&#34;&#34;
+        INSERT INTO data_launches
+            (ident, workspace, handle, meta, recipe_name, event_launch, event_finished)
+        VALUES
+            (:ident, :workspace, :handle, :meta, :recipe_name, :event_launch, :event_finished)
+    &#34;&#34;&#34;
+
+    insert_launch_buf = &#34;&#34;&#34;
+        INSERT INTO data_launches_bufs
+            (launch_ident, buffer_ident, [index], offset, synapse_name)
+        VALUES
+            (?, ?, ?, ?, ?)
+    &#34;&#34;&#34;
+
+    update_launch_events = &#34;&#34;&#34;
+        UPDATE data_launches
+        SET event_launch = :event_launch, event_finished = :event_finished
+        WHERE ident = :ident
+    &#34;&#34;&#34;
+
+    query_launch_by_launch_id = &#34;&#34;&#34;
+        SELECT event_ident, ident, workspace, handle, recipe_name, meta, event_launch, event_finished FROM view_launches
+        WHERE :launch_ident = ident
+        LIMIT 1
+    &#34;&#34;&#34;
+
+    query_launch_by_event_id = &#34;&#34;&#34;
+        SELECT event_ident, ident, workspace, handle, recipe_name, meta, event_launch, event_finished FROM view_launches
+        WHERE :event_ident = event_ident
+        LIMIT 1
+    &#34;&#34;&#34;
+
+    query_launch_bufs_by_launch_id = &#34;&#34;&#34;
+        SELECT 
+            launch_ident,
+            offset, [index], synapse_name,
+            ident, addr, size, meta,
+            event_malloc, event_free,
+            event_first_launch, event_last_launch
+        FROM view_launches_bufs
+        WHERE launch_ident = :launch_ident
+    &#34;&#34;&#34;
+
+
+class Python:
+    insert_python = &#34;&#34;&#34;
+        INSERT INTO events_pythonlog
+            (ident, command, message, funcname, filename, lineno, content, mark_id)
+        VALUES
+            (:ident, :command, :message, :funcname, :filename, :lineno, :content, :mark_id)
+        ;
+    &#34;&#34;&#34;
+
+    query_python_log = &#34;&#34;&#34;
+        SELECT event_ident, command, message, funcname, filename, lineno, content, mark_id
+        FROM view_pythonlog
+        WHERE :begin &lt;= event_ident AND event_ident &lt; :end
+        ORDER BY event_ident
+    &#34;&#34;&#34;
+
+    query_python_log_by_mark_id = &#34;&#34;&#34;
+        SELECT event_ident, command, message, funcname, filename, lineno, content, mark_id
+        FROM view_pythonlog
+        WHERE :mark_id == mark_id
+        ORDER BY event_ident
+    &#34;&#34;&#34;
+
+
+class Query:
+    query_events = &#34;&#34;&#34;
+        SELECT * FROM view_events
+        WHERE :begin &lt;= event_ident AND event_ident &lt; :end
+        ORDER BY event_ident
+    &#34;&#34;&#34;
+
+    query_devmem_summary = &#34;&#34;&#34;
+        SELECT event_ident, used, workspace, persistent, tag FROM view_devmem_summary
+        WHERE :begin &lt;= event_ident AND event_ident &lt; :end
+        ORDER BY event_ident
+    &#34;&#34;&#34;
+
+    query_devmem_summary_tag = &#34;&#34;&#34;
+        SELECT event_ident, used, workspace, persistent, tag FROM view_devmem_summary
+        WHERE :begin &lt;= event_ident AND event_ident &lt; :end AND tag = :tag
+        ORDER BY event_ident
+    &#34;&#34;&#34;
+
+    query_launches = &#34;&#34;&#34;
+        SELECT event_ident, ident, workspace, handle, event_launch, event_finished, recipe_name FROM view_launches
+        WHERE :begin &lt;= event_ident AND event_ident &lt; :end
+        ORDER BY event_ident
+    &#34;&#34;&#34;
+
+    query_devmem_bufs = &#34;&#34;&#34;
+        SELECT event_ident, is_allocation, ident, addr, size, 
+            event_malloc, event_free, event_first_launch, event_last_launch,
+            unknown FROM view_devmem_buf
+        WHERE :begin &lt;= event_ident AND event_ident &lt; :end
+    &#34;&#34;&#34;
+
+    query_devmem_bufs_full = &#34;&#34;&#34;
+        SELECT event_ident, is_allocation, ident, addr, size, event_malloc, event_free, event_first_launch, event_last_launch, meta, unknown FROM view_devmem_buf
+        WHERE :begin &lt;= event_ident AND event_ident &lt; :end
+        ORDER BY event_ident
+    &#34;&#34;&#34;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="towl-db.towl.db.store.sql.Buffers"><code class="flex name class">
+<span>class <span class="ident">Buffers</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Buffers:
+    insert_buffer = &#34;&#34;&#34;
+        INSERT INTO data_buffers
+            (ident, addr, size, event_malloc, event_free, event_first_launch, event_last_launch, unknown, meta)
+        VALUES
+            (:ident, :addr, :size, :event_malloc, :event_free, :event_first_launch, :event_last_launch, :unknown, :meta)
+    &#34;&#34;&#34;
+
+    query_buffers = &#34;&#34;&#34;
+        SELECT ident, addr, size, meta, unknown, event_malloc, event_free, event_first_launch, event_last_launch FROM data_buffers
+    &#34;&#34;&#34;
+
+    update_buffer_events = &#34;&#34;&#34;
+        UPDATE data_buffers
+        SET event_malloc = :event_malloc, event_free = :event_free, event_first_launch = :event_first_launch, event_last_launch = :event_last_launch
+        WHERE ident = :ident
+    &#34;&#34;&#34;
+
+    update_buffer_meta = &#34;&#34;&#34;
+        UPDATE data_buffers
+        SET meta = :meta
+        WHERE ident = :ident
+    &#34;&#34;&#34;</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.sql.Buffers.insert_buffer"><code class="name">var <span class="ident">insert_buffer</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Buffers.query_buffers"><code class="name">var <span class="ident">query_buffers</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Buffers.update_buffer_events"><code class="name">var <span class="ident">update_buffer_events</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Buffers.update_buffer_meta"><code class="name">var <span class="ident">update_buffer_meta</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="towl-db.towl.db.store.sql.EventsInserting"><code class="flex name class">
+<span>class <span class="ident">EventsInserting</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class EventsInserting:
+    insert_devmem_summary = &#34;&#34;&#34;
+        INSERT INTO events_devmem_summary
+            (ident, used, workspace, persistent, tag)
+        VALUES
+            (:ident, :used, :workspace, :persistent, :tag)
+    &#34;&#34;&#34;
+
+    insert_devmem_buf = &#34;&#34;&#34;
+        INSERT INTO events_devmem_buf
+            (ident, buffer_ident, is_allocation)
+        VALUES
+            (:ident, :buffer_ident, :is_allocation)
+    &#34;&#34;&#34;
+
+    insert_event = &#34;&#34;&#34;
+        INSERT INTO events
+            (ident, timestamp, tid, kind, reference)
+        VALUES
+            (:ident, :timestamp, :tid, :kind, :reference)
+    &#34;&#34;&#34;</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.sql.EventsInserting.insert_devmem_buf"><code class="name">var <span class="ident">insert_devmem_buf</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.EventsInserting.insert_devmem_summary"><code class="name">var <span class="ident">insert_devmem_summary</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.EventsInserting.insert_event"><code class="name">var <span class="ident">insert_event</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Initialization"><code class="flex name class">
+<span>class <span class="ident">Initialization</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Initialization:
+    create_tables = &#34;&#34;&#34;
+        CREATE TABLE meta
+            ( version INTEGER
+            )
+        ;
+
+        CREATE TABLE event_kind
+            ( ident INTEGER PRIMARY KEY
+            , name TEXT NOT NULL
+            )
+        ;
+        
+
+        CREATE TABLE events 
+            ( ident INTEGER PRIMARY KEY
+            , timestamp TIME NOT NULL
+            , tid INTEGER
+            , kind INTEGER NOT NULL
+            , reference INTEGER NOT NULL
+            , FOREIGN KEY(kind) REFERENCES event_kind(ident)
+            )
+        ;
+
+        CREATE TABLE data_buffers
+            ( ident INTEGER PRIMARY KEY
+            , addr INTEGER NOT NULL
+            , size INTEGER NOT NULL
+            , meta TEXT NOT NULL
+            , unknown BOOLEAN NOT NULL
+            , event_malloc INTEGER
+            , event_free INTEGER
+            , event_first_launch INTEGER
+            , event_last_launch INTEGER
+            )
+        ;
+
+        CREATE TABLE events_devmem_buf
+            ( ident INTEGER PRIMARY KEY
+            , buffer_ident INTEGER NOT NULL
+            , is_allocation BOOLEAN NOT NULL
+            , FOREIGN KEY(buffer_ident) REFERENCES data_buffers(ident)
+            )
+        ;
+
+        CREATE TABLE events_devmem_summary
+            ( ident INTEGER PRIMARY KEY
+            , used INTEGER NOT NULL
+            , workspace INTEGER NOT NULL
+            , persistent INTEGER NOT NULL
+            , tag TEXT NOT NULL
+            )
+        ;
+
+        CREATE TABLE data_launches
+            ( ident INTEGER PRIMARY KEY
+            , workspace INTEGER NOT NULL
+            , handle INTEGER NOT NULL
+            , recipe_name TEXT NOT NULL
+            , meta TEXT NOT NULL
+            , event_launch INTEGER
+            , event_finished INTEGER
+            )
+        ;
+
+        CREATE TABLE data_launches_bufs
+            ( launch_ident INTEGER NOT NULL
+            , buffer_ident INTEGER NOT NULL
+            , [index] INTEGER NOT NULL
+            , offset INTEGER NOT NULL
+            , synapse_name TEXT
+            , FOREIGN KEY (launch_ident) REFERENCES data_launches(ident)
+            , FOREIGN KEY (buffer_ident) REFERENCES data_buffers(ident)
+            )
+        ;
+
+        CREATE TABLE events_recipe_launch
+            ( ident INTEGER PRIMARY KEY
+            , launch_ident INTEGER NOT NULL
+            , FOREIGN KEY (launch_ident) REFERENCES data_launches(ident)
+            )
+        ;
+
+        CREATE TABLE events_pythonlog
+            ( ident INTEGER PRIMARY KEY
+            , command TEXT
+            , message TEXT
+            , funcname TEXT
+            , filename TEXT
+            , lineno INT
+            , content TEXT
+            , mark_id INT
+            )
+        ;
+    &#34;&#34;&#34;
+
+    create_views = &#34;&#34;&#34;
+        CREATE VIEW view_launches AS
+        SELECT events.ident AS event_ident, data_launches.*
+        FROM events
+        INNER JOIN data_launches
+            ON events.reference = data_launches.ident
+            AND events.kind = 2
+        ORDER BY event_ident
+        ;
+
+        CREATE VIEW view_pythonlog AS
+        SELECT events.ident AS event_ident, events_pythonlog.*
+        FROM events
+        INNER JOIN events_pythonlog
+            ON events.reference = events_pythonlog.ident
+            AND events.kind = 4
+        ORDER BY event_ident
+        ;
+
+        CREATE VIEW view_devmem_summary AS
+        SELECT events.ident as event_ident, events_devmem_summary.*
+        FROM events
+        INNER JOIN events_devmem_summary
+            ON events.reference = events_devmem_summary.ident
+            AND events.kind = 1
+        ORDER BY event_ident
+        ;
+
+        CREATE VIEW view_devmem_buf AS
+        SELECT events.ident as event_ident, events_devmem_buf.is_allocation, data_buffers.*
+        FROM events
+        INNER JOIN events_devmem_buf
+            ON events.reference = events_devmem_buf.ident
+            AND events.kind = 0
+        INNER JOIN data_buffers
+            ON data_buffers.ident == events_devmem_buf.buffer_ident
+        ORDER BY event_ident
+        ;
+
+        CREATE VIEW view_launches_bufs AS
+        SELECT 
+            data_launches_bufs.launch_ident,
+            data_launches_bufs.offset,
+            data_launches_bufs.[index],
+            data_launches_bufs.synapse_name,
+            data_buffers.ident,
+            data_buffers.addr, data_buffers.size,
+            data_buffers.unknown, data_buffers.meta,
+            data_buffers.event_malloc, data_buffers.event_free,
+            data_buffers.event_first_launch, data_buffers.event_last_launch
+        FROM
+            data_launches_bufs
+        INNER JOIN data_buffers
+            ON data_buffers.ident = data_launches_bufs.buffer_ident
+        ORDER BY [index]
+        ;
+
+        CREATE VIEW view_events AS
+        SELECT
+            events.ident as event_ident,
+            events.tid,
+            events.timestamp,
+            event_kind.name
+        FROM
+            events
+        INNER JOIN event_kind
+            ON events.kind = event_kind.ident
+        ORDER BY events.ident
+        ;
+    &#34;&#34;&#34;
+
+    insert_version = &#34;&#34;&#34;
+        INSERT INTO meta
+            (version)
+        VALUES
+            (20240206)
+        ;
+    &#34;&#34;&#34;
+
+    insert_enums = &#34;&#34;&#34;
+        INSERT INTO event_kind
+            (ident, name)
+        VALUES
+            (0, &#39;devmem_buf&#39;),
+            (1, &#39;devmem_summary&#39;),
+            (2, &#39;recipe_launch&#39;),
+            (3, &#39;recipe_finished&#39;),
+            (4, &#39;python&#39;)
+        ;
+    &#34;&#34;&#34;
+
+    cleanup = &#34;&#34;&#34;
+        VACUUM;
+        PRAGMA vacuum;
+        PRAGMA optimize;
+    &#34;&#34;&#34;</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.sql.Initialization.cleanup"><code class="name">var <span class="ident">cleanup</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Initialization.create_tables"><code class="name">var <span class="ident">create_tables</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Initialization.create_views"><code class="name">var <span class="ident">create_views</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Initialization.insert_enums"><code class="name">var <span class="ident">insert_enums</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Initialization.insert_version"><code class="name">var <span class="ident">insert_version</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Launches"><code class="flex name class">
+<span>class <span class="ident">Launches</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Launches:
+    insert_launch = &#34;&#34;&#34;
+        INSERT INTO data_launches
+            (ident, workspace, handle, meta, recipe_name, event_launch, event_finished)
+        VALUES
+            (:ident, :workspace, :handle, :meta, :recipe_name, :event_launch, :event_finished)
+    &#34;&#34;&#34;
+
+    insert_launch_buf = &#34;&#34;&#34;
+        INSERT INTO data_launches_bufs
+            (launch_ident, buffer_ident, [index], offset, synapse_name)
+        VALUES
+            (?, ?, ?, ?, ?)
+    &#34;&#34;&#34;
+
+    update_launch_events = &#34;&#34;&#34;
+        UPDATE data_launches
+        SET event_launch = :event_launch, event_finished = :event_finished
+        WHERE ident = :ident
+    &#34;&#34;&#34;
+
+    query_launch_by_launch_id = &#34;&#34;&#34;
+        SELECT event_ident, ident, workspace, handle, recipe_name, meta, event_launch, event_finished FROM view_launches
+        WHERE :launch_ident = ident
+        LIMIT 1
+    &#34;&#34;&#34;
+
+    query_launch_by_event_id = &#34;&#34;&#34;
+        SELECT event_ident, ident, workspace, handle, recipe_name, meta, event_launch, event_finished FROM view_launches
+        WHERE :event_ident = event_ident
+        LIMIT 1
+    &#34;&#34;&#34;
+
+    query_launch_bufs_by_launch_id = &#34;&#34;&#34;
+        SELECT 
+            launch_ident,
+            offset, [index], synapse_name,
+            ident, addr, size, meta,
+            event_malloc, event_free,
+            event_first_launch, event_last_launch
+        FROM view_launches_bufs
+        WHERE launch_ident = :launch_ident
+    &#34;&#34;&#34;</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.sql.Launches.insert_launch"><code class="name">var <span class="ident">insert_launch</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Launches.insert_launch_buf"><code class="name">var <span class="ident">insert_launch_buf</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Launches.query_launch_bufs_by_launch_id"><code class="name">var <span class="ident">query_launch_bufs_by_launch_id</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Launches.query_launch_by_event_id"><code class="name">var <span class="ident">query_launch_by_event_id</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Launches.query_launch_by_launch_id"><code class="name">var <span class="ident">query_launch_by_launch_id</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Launches.update_launch_events"><code class="name">var <span class="ident">update_launch_events</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Opening"><code class="flex name class">
+<span>class <span class="ident">Opening</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Opening:
+    read_version = &#34;&#34;&#34;
+        SELECT version from meta
+    &#34;&#34;&#34;
+
+    xconfigure = &#34;&#34;&#34;
+        PRAGMA foreign_keys = ON;
+        PRAGMA synchronous = OFF;
+        PRAGMA journal_mode = OFF;
+    &#34;&#34;&#34;
+
+    configure = &#34;&#34;&#34;
+        PRAGMA foreign_keys = ON;
+    &#34;&#34;&#34;
+
+    count_events = &#34;&#34;&#34;
+        SELECT COUNT(*) from events
+    &#34;&#34;&#34;</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.sql.Opening.configure"><code class="name">var <span class="ident">configure</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Opening.count_events"><code class="name">var <span class="ident">count_events</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Opening.read_version"><code class="name">var <span class="ident">read_version</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Opening.xconfigure"><code class="name">var <span class="ident">xconfigure</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Python"><code class="flex name class">
+<span>class <span class="ident">Python</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Python:
+    insert_python = &#34;&#34;&#34;
+        INSERT INTO events_pythonlog
+            (ident, command, message, funcname, filename, lineno, content, mark_id)
+        VALUES
+            (:ident, :command, :message, :funcname, :filename, :lineno, :content, :mark_id)
+        ;
+    &#34;&#34;&#34;
+
+    query_python_log = &#34;&#34;&#34;
+        SELECT event_ident, command, message, funcname, filename, lineno, content, mark_id
+        FROM view_pythonlog
+        WHERE :begin &lt;= event_ident AND event_ident &lt; :end
+        ORDER BY event_ident
+    &#34;&#34;&#34;
+
+    query_python_log_by_mark_id = &#34;&#34;&#34;
+        SELECT event_ident, command, message, funcname, filename, lineno, content, mark_id
+        FROM view_pythonlog
+        WHERE :mark_id == mark_id
+        ORDER BY event_ident
+    &#34;&#34;&#34;</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.sql.Python.insert_python"><code class="name">var <span class="ident">insert_python</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Python.query_python_log"><code class="name">var <span class="ident">query_python_log</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Python.query_python_log_by_mark_id"><code class="name">var <span class="ident">query_python_log_by_mark_id</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Query"><code class="flex name class">
+<span>class <span class="ident">Query</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Query:
+    query_events = &#34;&#34;&#34;
+        SELECT * FROM view_events
+        WHERE :begin &lt;= event_ident AND event_ident &lt; :end
+        ORDER BY event_ident
+    &#34;&#34;&#34;
+
+    query_devmem_summary = &#34;&#34;&#34;
+        SELECT event_ident, used, workspace, persistent, tag FROM view_devmem_summary
+        WHERE :begin &lt;= event_ident AND event_ident &lt; :end
+        ORDER BY event_ident
+    &#34;&#34;&#34;
+
+    query_devmem_summary_tag = &#34;&#34;&#34;
+        SELECT event_ident, used, workspace, persistent, tag FROM view_devmem_summary
+        WHERE :begin &lt;= event_ident AND event_ident &lt; :end AND tag = :tag
+        ORDER BY event_ident
+    &#34;&#34;&#34;
+
+    query_launches = &#34;&#34;&#34;
+        SELECT event_ident, ident, workspace, handle, event_launch, event_finished, recipe_name FROM view_launches
+        WHERE :begin &lt;= event_ident AND event_ident &lt; :end
+        ORDER BY event_ident
+    &#34;&#34;&#34;
+
+    query_devmem_bufs = &#34;&#34;&#34;
+        SELECT event_ident, is_allocation, ident, addr, size, 
+            event_malloc, event_free, event_first_launch, event_last_launch,
+            unknown FROM view_devmem_buf
+        WHERE :begin &lt;= event_ident AND event_ident &lt; :end
+    &#34;&#34;&#34;
+
+    query_devmem_bufs_full = &#34;&#34;&#34;
+        SELECT event_ident, is_allocation, ident, addr, size, event_malloc, event_free, event_first_launch, event_last_launch, meta, unknown FROM view_devmem_buf
+        WHERE :begin &lt;= event_ident AND event_ident &lt; :end
+        ORDER BY event_ident
+    &#34;&#34;&#34;</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.sql.Query.query_devmem_bufs"><code class="name">var <span class="ident">query_devmem_bufs</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Query.query_devmem_bufs_full"><code class="name">var <span class="ident">query_devmem_bufs_full</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Query.query_devmem_summary"><code class="name">var <span class="ident">query_devmem_summary</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Query.query_devmem_summary_tag"><code class="name">var <span class="ident">query_devmem_summary_tag</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Query.query_events"><code class="name">var <span class="ident">query_events</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.sql.Query.query_launches"><code class="name">var <span class="ident">query_launches</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="towl-db.towl.db.store" href="index.html">towl-db.towl.db.store</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="towl-db.towl.db.store.sql.Buffers" href="#towl-db.towl.db.store.sql.Buffers">Buffers</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.store.sql.Buffers.insert_buffer" href="#towl-db.towl.db.store.sql.Buffers.insert_buffer">insert_buffer</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Buffers.query_buffers" href="#towl-db.towl.db.store.sql.Buffers.query_buffers">query_buffers</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Buffers.update_buffer_events" href="#towl-db.towl.db.store.sql.Buffers.update_buffer_events">update_buffer_events</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Buffers.update_buffer_meta" href="#towl-db.towl.db.store.sql.Buffers.update_buffer_meta">update_buffer_meta</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-db.towl.db.store.sql.EventsInserting" href="#towl-db.towl.db.store.sql.EventsInserting">EventsInserting</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.store.sql.EventsInserting.insert_devmem_buf" href="#towl-db.towl.db.store.sql.EventsInserting.insert_devmem_buf">insert_devmem_buf</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.EventsInserting.insert_devmem_summary" href="#towl-db.towl.db.store.sql.EventsInserting.insert_devmem_summary">insert_devmem_summary</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.EventsInserting.insert_event" href="#towl-db.towl.db.store.sql.EventsInserting.insert_event">insert_event</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-db.towl.db.store.sql.Initialization" href="#towl-db.towl.db.store.sql.Initialization">Initialization</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.store.sql.Initialization.cleanup" href="#towl-db.towl.db.store.sql.Initialization.cleanup">cleanup</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Initialization.create_tables" href="#towl-db.towl.db.store.sql.Initialization.create_tables">create_tables</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Initialization.create_views" href="#towl-db.towl.db.store.sql.Initialization.create_views">create_views</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Initialization.insert_enums" href="#towl-db.towl.db.store.sql.Initialization.insert_enums">insert_enums</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Initialization.insert_version" href="#towl-db.towl.db.store.sql.Initialization.insert_version">insert_version</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-db.towl.db.store.sql.Launches" href="#towl-db.towl.db.store.sql.Launches">Launches</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.store.sql.Launches.insert_launch" href="#towl-db.towl.db.store.sql.Launches.insert_launch">insert_launch</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Launches.insert_launch_buf" href="#towl-db.towl.db.store.sql.Launches.insert_launch_buf">insert_launch_buf</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Launches.query_launch_bufs_by_launch_id" href="#towl-db.towl.db.store.sql.Launches.query_launch_bufs_by_launch_id">query_launch_bufs_by_launch_id</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Launches.query_launch_by_event_id" href="#towl-db.towl.db.store.sql.Launches.query_launch_by_event_id">query_launch_by_event_id</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Launches.query_launch_by_launch_id" href="#towl-db.towl.db.store.sql.Launches.query_launch_by_launch_id">query_launch_by_launch_id</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Launches.update_launch_events" href="#towl-db.towl.db.store.sql.Launches.update_launch_events">update_launch_events</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-db.towl.db.store.sql.Opening" href="#towl-db.towl.db.store.sql.Opening">Opening</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.store.sql.Opening.configure" href="#towl-db.towl.db.store.sql.Opening.configure">configure</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Opening.count_events" href="#towl-db.towl.db.store.sql.Opening.count_events">count_events</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Opening.read_version" href="#towl-db.towl.db.store.sql.Opening.read_version">read_version</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Opening.xconfigure" href="#towl-db.towl.db.store.sql.Opening.xconfigure">xconfigure</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-db.towl.db.store.sql.Python" href="#towl-db.towl.db.store.sql.Python">Python</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.store.sql.Python.insert_python" href="#towl-db.towl.db.store.sql.Python.insert_python">insert_python</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Python.query_python_log" href="#towl-db.towl.db.store.sql.Python.query_python_log">query_python_log</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Python.query_python_log_by_mark_id" href="#towl-db.towl.db.store.sql.Python.query_python_log_by_mark_id">query_python_log_by_mark_id</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-db.towl.db.store.sql.Query" href="#towl-db.towl.db.store.sql.Query">Query</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.store.sql.Query.query_devmem_bufs" href="#towl-db.towl.db.store.sql.Query.query_devmem_bufs">query_devmem_bufs</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Query.query_devmem_bufs_full" href="#towl-db.towl.db.store.sql.Query.query_devmem_bufs_full">query_devmem_bufs_full</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Query.query_devmem_summary" href="#towl-db.towl.db.store.sql.Query.query_devmem_summary">query_devmem_summary</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Query.query_devmem_summary_tag" href="#towl-db.towl.db.store.sql.Query.query_devmem_summary_tag">query_devmem_summary_tag</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Query.query_events" href="#towl-db.towl.db.store.sql.Query.query_events">query_events</a></code></li>
+<li><code><a title="towl-db.towl.db.store.sql.Query.query_launches" href="#towl-db.towl.db.store.sql.Query.query_launches">query_launches</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

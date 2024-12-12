@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>towl-user.towl.user API documentation</title>
+<meta name="description" content="Torch Owl - user interface …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>towl-user.towl.user</code></h1>
+</header>
+<section id="section-intro">
+<p>Torch Owl - user interface.</p>
+<ul>
+<li>See <code>towl-notebooks</code> directory inside the saturn repository.</li>
+</ul>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">################################################################################
+# Copyright 2024 Intel Corporation
+#
+# Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+################################################################################
+
+__doc__ = &#34;&#34;&#34;
+Torch Owl - user interface.
+
+ * See `towl-notebooks` directory inside the saturn repository.
+
+&#34;&#34;&#34;
+
+from . import cli
+from . import cudamemviz
+from . import data
+from . import lib
+from . import plots
+
+from .data import Scenario, ScenarioView, EventTimeRange, RecipeLaunch
+from .data import WallclockTimeRange
+
+__pdoc__ = {
+    &#34;data&#34;: False,
+    &#34;cli&#34;: False,
+    &#34;cudamemviz&#34;: False,
+    &#34;utils&#34;: False,
+    &#34;WallclockTimeRange&#34;: False,
+}
+
+__all__ = [
+    &#34;Scenario&#34;,
+    &#34;ScenarioView&#34;,
+    &#34;EventTimeRange&#34;,
+    &#34;RecipeLaunch&#34;,
+    &#34;WallclockTimeRange&#34;,
+    &#34;lib&#34;,
+    &#34;plots&#34;,
+    &#34;cudamemviz&#34;,
+]</code></pre>
+</details>
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="towl-user.towl.user.lib" href="lib/index.html">towl-user.towl.user.lib</a></code></dt>
+<dd>
+<div class="desc"><p>Collection of useful routines and helpers.</p></div>
+</dd>
+<dt><code class="name"><a title="towl-user.towl.user.plots" href="plots/index.html">towl-user.towl.user.plots</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="towl-user.towl.user.EventTimeRange"><code class="flex name class">
+<span>class <span class="ident">EventTimeRange</span></span>
+<span>(</span><span>begin: Union[int, numpy.int64], end: Union[int, numpy.int64])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The event time range object. Represents time interval
+starting at <code>begin</code> and ending <strong>before</strong> <code>end</code>.</p>
+<p>So the interval <code>[begin; end)</code> is left-closed and right-closed
+like ranges in C++.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@typechecked
+class EventTimeRange:
+    &#34;&#34;&#34;
+    The event time range object. Represents time interval
+    starting at `begin` and ending **before** `end`.
+
+    So the interval `[begin; end)` is left-closed and right-closed
+    like ranges in C++.
+    &#34;&#34;&#34;
+
+    def __init__(self, begin: int_or_int64, end: int_or_int64):
+        self._begin = int(begin)
+        self._end = int(end)
+
+    @staticmethod
+    def make(begin, end):
+        return EventTimeRange(int(begin), int(end))
+
+    @property
+    def begin(self):
+        &#34;Event number starting the interval&#34;
+        return self._begin
+
+    @property
+    def end(self):
+        &#34;Event number closing the interval&#34;
+        return self._end
+
+    def __len__(self):
+        return self.end - self.begin
+
+    def __repr__(self):
+        return f&#34;EventTimeRange(begin={self.begin}; end={self.end}; {len(self)} events)&#34;
+
+    def __add__(self, other: &#34;EventTimeRange&#34;):
+        if type(other) not in [EventTimeRange]:
+            raise RuntimeError(&#34;EventTimeRange can be added to timerange only&#34;)
+
+        lhs = min(self.begin, other.begin)
+        rhs = max(self.end, other.end)
+        return EventTimeRange(lhs, rhs)
+
+    def alter(self, *, begin: int = 0, end: int = 0):
+        &#34;&#34;&#34;
+        Returns a new interval where `begin` and `end` are adjusted by given
+        parameters.
+        &#34;&#34;&#34;
+        return EventTimeRange(self.begin + begin, self.end + end)
+
+    def has(self, index: int_or_int64) -&gt; bool:
+        &#34;Check if given event number is contained inside timerange&#34;
+        return bool(self.begin &lt;= index and index &lt; self.end)</code></pre>
+</details>
+<h3>Static methods</h3>
+<dl>
+<dt id="towl-user.towl.user.EventTimeRange.make"><code class="name flex">
+<span>def <span class="ident">make</span></span>(<span>begin, end)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def make(begin, end):
+    return EventTimeRange(int(begin), int(end))</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="towl-user.towl.user.EventTimeRange.begin"><code class="name">var <span class="ident">begin</span></code></dt>
+<dd>
+<div class="desc"><p>Event number starting the interval</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def begin(self):
+    &#34;Event number starting the interval&#34;
+    return self._begin</code></pre>
+</details>
+</dd>
+<dt id="towl-user.towl.user.EventTimeRange.end"><code class="name">var <span class="ident">end</span></code></dt>
+<dd>
+<div class="desc"><p>Event number closing the interval</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def end(self):
+    &#34;Event number closing the interval&#34;
+    return self._end</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="towl-user.towl.user.EventTimeRange.alter"><code class="name flex">
+<span>def <span class="ident">alter</span></span>(<span>self, *, begin: int = 0, end: int = 0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a new interval where <code>begin</code> and <code>end</code> are adjusted by given
+parameters.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def alter(self, *, begin: int = 0, end: int = 0):
+    &#34;&#34;&#34;
+    Returns a new interval where `begin` and `end` are adjusted by given
+    parameters.
+    &#34;&#34;&#34;
+    return EventTimeRange(self.begin + begin, self.end + end)</code></pre>
+</details>
+</dd>
+<dt id="towl-user.towl.user.EventTimeRange.has"><code class="name flex">
+<span>def <span class="ident">has</span></span>(<span>self, index: Union[int, numpy.int64]) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Check if given event number is contained inside timerange</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def has(self, index: int_or_int64) -&gt; bool:
+    &#34;Check if given event number is contained inside timerange&#34;
+    return bool(self.begin &lt;= index and index &lt; self.end)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="towl-user.towl.user.RecipeLaunch"><code class="flex name class">
+<span>class <span class="ident">RecipeLaunch</span></span>
+<span>(</span><span>*, event_ident: int, launch_ident: int, workspace: int, handle: int, event_launch: int, event_finished: int, buffer_ids: List[towl.db.store.model.DataRecipeLaunchBuffer], db: towl-user.towl.user.data.database.DatabaseFacade)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The recipe launch representation.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@typechecked
+class RecipeLaunch:
+    &#34;&#34;&#34;
+    The recipe launch representation.
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        *,
+        event_ident: int,
+        launch_ident: int,
+        workspace: int,
+        handle: int,
+        event_launch: int,
+        event_finished: int,
+        buffer_ids: List[model.DataRecipeLaunchBuffer],
+        db: DatabaseFacade,
+    ):
+        self.event_ident = event_ident
+        self.launch_ident = launch_ident
+        self.workspace = workspace
+        self.handle = handle
+        self.event_launch = event_launch
+        self.event_finished = event_finished
+        self.buffer_ids = buffer_ids
+        self._db = db
+
+    def __repr__(self):
+        ws = memory_str(self.workspace)
+        return f&#34;RecipeLaunch(event_ident={self.event_ident} launch_ident={self.launch_ident} handle=0x{self.handle:x} workspace={ws} event={{launch={self.event_launch} finished={self.event_finished}}})&#34;
+
+    @property
+    def event_lifetime(self) -&gt; EventTimeRange:
+        &#34;&#34;&#34;
+        Returns event time range representing recipe life time -- from launch event
+        to finished event.
+
+        In simple words: `(event_launch, event_finished + 1)`.
+        &#34;&#34;&#34;
+        return EventTimeRange(self.event_launch, self.event_finished + 1)
+
+    def query_recipe_launch_buffers(self) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Returns pandas DataFrame representing buffers passed to recipe
+        for this launch.
+        &#34;&#34;&#34;
+        d = {x: [] for x in model.DataRecipeLaunchBuffer.model_fields}
+        for entry in self.buffer_ids:
+            for k, v in entry:
+                d[k].append(v)
+
+        df = pd.DataFrame.from_dict(d)
+        df.set_index(&#34;index&#34;, drop=True, inplace=True)
+        df[&#34;bufname&#34;] = df[&#34;buffer&#34;].map(lambda x: f&#34;BUF_{x}&#34;)
+        return df</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="towl-user.towl.user.RecipeLaunch.event_lifetime"><code class="name">var <span class="ident">event_lifetime</span> : towl-user.towl.user.data.timerange.EventTimeRange</code></dt>
+<dd>
+<div class="desc"><p>Returns event time range representing recipe life time &ndash; from launch event
+to finished event.</p>
+<p>In simple words: <code>(event_launch, event_finished + 1)</code>.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def event_lifetime(self) -&gt; EventTimeRange:
+    &#34;&#34;&#34;
+    Returns event time range representing recipe life time -- from launch event
+    to finished event.
+
+    In simple words: `(event_launch, event_finished + 1)`.
+    &#34;&#34;&#34;
+    return EventTimeRange(self.event_launch, self.event_finished + 1)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="towl-user.towl.user.RecipeLaunch.query_recipe_launch_buffers"><code class="name flex">
+<span>def <span class="ident">query_recipe_launch_buffers</span></span>(<span>self) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns pandas DataFrame representing buffers passed to recipe
+for this launch.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def query_recipe_launch_buffers(self) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;
+    Returns pandas DataFrame representing buffers passed to recipe
+    for this launch.
+    &#34;&#34;&#34;
+    d = {x: [] for x in model.DataRecipeLaunchBuffer.model_fields}
+    for entry in self.buffer_ids:
+        for k, v in entry:
+            d[k].append(v)
+
+    df = pd.DataFrame.from_dict(d)
+    df.set_index(&#34;index&#34;, drop=True, inplace=True)
+    df[&#34;bufname&#34;] = df[&#34;buffer&#34;].map(lambda x: f&#34;BUF_{x}&#34;)
+    return df</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="towl-user.towl.user.Scenario"><code class="flex name class">
+<span>class <span class="ident">Scenario</span></span>
+<span>(</span><span>path: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Representation of scenario stored in the database stored in the <code>path</code> directory.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@typechecked
+class Scenario:
+    &#34;&#34;&#34;
+    Representation of scenario stored in the database stored in the `path` directory.
+    &#34;&#34;&#34;
+
+    def __init__(self, path: str):
+        self._db = DatabaseFacade(path)
+        self._common_view = CommonView(self._db)
+
+    @property
+    def global_event_timerange(self) -&gt; EventTimeRange:
+        &#34;&#34;&#34;Returns timerange representing whole scenario&#34;&#34;&#34;
+        return self._db.fetch_global_timerange()
+
+    def make_view(self, event_timerange: EventTimeRange) -&gt; ScenarioView:
+        &#34;&#34;&#34;
+        Makes a view for given timerange.
+        &#34;&#34;&#34;
+        return ScenarioView(self._db, event_timerange)
+
+    def make_global_view(self) -&gt; ScenarioView:
+        &#34;&#34;&#34;
+        Shortcut for `make_view(global_timerange)`
+        &#34;&#34;&#34;
+        return self.make_view(self.global_event_timerange)
+
+    def query_recipe_launch_by_launch_ident(self, launch_ident: int) -&gt; RecipeLaunch:
+        &#34;Returns `RecipeLaunch` representation for given `launch_ident`&#34;
+        return self._common_view.query_recipe_launch_by_launch_ident(launch_ident)
+
+    def query_recipe_launch_by_event_ident(self, event_ident: int) -&gt; RecipeLaunch:
+        &#34;Returns `RecipeLaunch` representation for given `event_ident`&#34;
+        return self._common_view.query_recipe_launch_by_event_ident(event_ident)
+
+    def python_code(self, view=None):
+        from .code import PythonCode
+
+        if view is None:
+            view = self.make_global_view()
+
+        return PythonCode.make(self, view.event_timerange)</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="towl-user.towl.user.Scenario.global_event_timerange"><code class="name">var <span class="ident">global_event_timerange</span> : towl-user.towl.user.data.timerange.EventTimeRange</code></dt>
+<dd>
+<div class="desc"><p>Returns timerange representing whole scenario</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def global_event_timerange(self) -&gt; EventTimeRange:
+    &#34;&#34;&#34;Returns timerange representing whole scenario&#34;&#34;&#34;
+    return self._db.fetch_global_timerange()</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="towl-user.towl.user.Scenario.make_global_view"><code class="name flex">
+<span>def <span class="ident">make_global_view</span></span>(<span>self) ‑> towl-user.towl.user.data.scenario_view.ScenarioView</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Shortcut for <code>make_view(global_timerange)</code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def make_global_view(self) -&gt; ScenarioView:
+    &#34;&#34;&#34;
+    Shortcut for `make_view(global_timerange)`
+    &#34;&#34;&#34;
+    return self.make_view(self.global_event_timerange)</code></pre>
+</details>
+</dd>
+<dt id="towl-user.towl.user.Scenario.make_view"><code class="name flex">
+<span>def <span class="ident">make_view</span></span>(<span>self, event_timerange: towl-user.towl.user.data.timerange.EventTimeRange) ‑> towl-user.towl.user.data.scenario_view.ScenarioView</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Makes a view for given timerange.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def make_view(self, event_timerange: EventTimeRange) -&gt; ScenarioView:
+    &#34;&#34;&#34;
+    Makes a view for given timerange.
+    &#34;&#34;&#34;
+    return ScenarioView(self._db, event_timerange)</code></pre>
+</details>
+</dd>
+<dt id="towl-user.towl.user.Scenario.python_code"><code class="name flex">
+<span>def <span class="ident">python_code</span></span>(<span>self, view=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def python_code(self, view=None):
+    from .code import PythonCode
+
+    if view is None:
+        view = self.make_global_view()
+
+    return PythonCode.make(self, view.event_timerange)</code></pre>
+</details>
+</dd>
+<dt id="towl-user.towl.user.Scenario.query_recipe_launch_by_event_ident"><code class="name flex">
+<span>def <span class="ident">query_recipe_launch_by_event_ident</span></span>(<span>self, event_ident: int) ‑> towl-user.towl.user.data.recipe_launch.RecipeLaunch</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns <code><a title="towl-user.towl.user.RecipeLaunch" href="#towl-user.towl.user.RecipeLaunch">RecipeLaunch</a></code> representation for given <code>event_ident</code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def query_recipe_launch_by_event_ident(self, event_ident: int) -&gt; RecipeLaunch:
+    &#34;Returns `RecipeLaunch` representation for given `event_ident`&#34;
+    return self._common_view.query_recipe_launch_by_event_ident(event_ident)</code></pre>
+</details>
+</dd>
+<dt id="towl-user.towl.user.Scenario.query_recipe_launch_by_launch_ident"><code class="name flex">
+<span>def <span class="ident">query_recipe_launch_by_launch_ident</span></span>(<span>self, launch_ident: int) ‑> towl-user.towl.user.data.recipe_launch.RecipeLaunch</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns <code><a title="towl-user.towl.user.RecipeLaunch" href="#towl-user.towl.user.RecipeLaunch">RecipeLaunch</a></code> representation for given <code>launch_ident</code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def query_recipe_launch_by_launch_ident(self, launch_ident: int) -&gt; RecipeLaunch:
+    &#34;Returns `RecipeLaunch` representation for given `launch_ident`&#34;
+    return self._common_view.query_recipe_launch_by_launch_ident(launch_ident)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="towl-user.towl.user.ScenarioView"><code class="flex name class">
+<span>class <span class="ident">ScenarioView</span></span>
+<span>(</span><span>db: towl-user.towl.user.data.database.DatabaseFacade, event_timerange: towl-user.towl.user.data.timerange.EventTimeRange)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Scenario view. Object gives access to data related to given <code><a title="towl-user.towl.user.EventTimeRange" href="#towl-user.towl.user.EventTimeRange">EventTimeRange</a></code>.</p>
+<ul>
+<li>See <code><a title="towl-user.towl.user.Scenario.make_view" href="#towl-user.towl.user.Scenario.make_view">Scenario.make_view()</a></code></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@typechecked
+class ScenarioView:
+    &#34;&#34;&#34;
+    Scenario view. Object gives access to data related to given `EventTimeRange`.
+
+    * See `Scenario.make_view`
+    &#34;&#34;&#34;
+
+    def __init__(self, db: DatabaseFacade, event_timerange: EventTimeRange):
+        self._db = db
+        self._event_timerange = event_timerange
+        self._common_view = CommonView(db)
+
+    def make_view(self, event_timerange: EventTimeRange):
+        &#34;Make a view for given timerange. See `Scenario.make_view`.&#34;
+        return ScenarioView(self._db, event_timerange)
+
+    @property
+    def event_timerange(self) -&gt; EventTimeRange:
+        &#34;Event time range associated with this view&#34;
+        return self._event_timerange
+
+    def query_events(self) -&gt; pd.DataFrame:
+        &#34;Returns pandas DataFrame with events&#34;
+        df = self._db.query_events(self.event_timerange)
+        return df
+
+    def query_memory_usage(self, tag: Optional[str] = None) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Returns pandas DataFrame with memory usage.
+        &#34;&#34;&#34;
+        df = self._db.query_devmem_summary(self.event_timerange, tag)
+
+        df[&#34;workspace_str&#34;] = df[&#34;workspace&#34;].map(ustrings.memory_str)
+        df[&#34;persistent_str&#34;] = df[&#34;persistent&#34;].map(ustrings.memory_str)
+        df[&#34;used_str&#34;] = df[&#34;used&#34;].map(ustrings.memory_str)
+
+        # df[&#34;addr_hex&#34;] = df[&#34;addr&#34;].map(ustrings.to_hex)
+        # df[&#34;size_str&#34;] = df[&#34;size&#34;].map(ustrings.memory_str)
+
+        return df
+
+    def _query_devmem_bufs_full(self) -&gt; pd.DataFrame:
+        df = self._db.query_devmem_bufs_full(self._event_timerange)
+        df[&#34;addr_hex&#34;] = df[&#34;addr&#34;].map(lambda x: f&#34;0x{x:x}&#34;)
+        df[&#34;size_str&#34;] = df[&#34;size&#34;].map(memory_str)
+        return df
+
+    def _x_query_recipe_launches(self) -&gt; pd.DataFrame:
+        return self._db.query_recipe_launches(self._event_timerange)
+
+    def query_buffers_allocs(self) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Returns pandas DataFrame with memory allocations and deallocations.
+        &#34;&#34;&#34;
+        df = self._db.query_buffers_allocs(self._event_timerange)
+        return df
+
+    def query_recipe_launches(self) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Returns pandas DataFrame with recipe launches.
+        &#34;&#34;&#34;
+        df = self._db.query_launches(self._event_timerange)
+        return df
+
+    def query_recipe_launch_by_launch_ident(self, launch_ident: int):
+        &#34;Returns `RecipeLaunch` representation for given `launch_ident`&#34;
+        return self._common_view.query_recipe_launch_by_launch_ident(launch_ident)
+
+    def query_recipe_launch_by_event_ident(self, event_ident: int):
+        &#34;Returns `RecipeLaunch` representation for given `event_ident`&#34;
+        return self._common_view.query_recipe_launch_by_event_ident(event_ident)
+
+    def query_python_log(self, *, map_basename=False) -&gt; pd.DataFrame:
+        &#34;Returns pandas DataFrame with python log events&#34;
+        df = self._query_python_log_full(map_basename=map_basename)
+        del df[&#34;content&#34;]
+        return df
+
+    def _query_python_log_full(self, *, map_basename=False) -&gt; pd.DataFrame:
+        df = self._db.query_python_log_full(
+            self._event_timerange,
+            map_basename=map_basename,
+        )
+        return df</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="towl-user.towl.user.ScenarioView.event_timerange"><code class="name">var <span class="ident">event_timerange</span> : towl-user.towl.user.data.timerange.EventTimeRange</code></dt>
+<dd>
+<div class="desc"><p>Event time range associated with this view</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def event_timerange(self) -&gt; EventTimeRange:
+    &#34;Event time range associated with this view&#34;
+    return self._event_timerange</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="towl-user.towl.user.ScenarioView.make_view"><code class="name flex">
+<span>def <span class="ident">make_view</span></span>(<span>self, event_timerange: towl-user.towl.user.data.timerange.EventTimeRange)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Make a view for given timerange. See <code><a title="towl-user.towl.user.Scenario.make_view" href="#towl-user.towl.user.Scenario.make_view">Scenario.make_view()</a></code>.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def make_view(self, event_timerange: EventTimeRange):
+    &#34;Make a view for given timerange. See `Scenario.make_view`.&#34;
+    return ScenarioView(self._db, event_timerange)</code></pre>
+</details>
+</dd>
+<dt id="towl-user.towl.user.ScenarioView.query_buffers_allocs"><code class="name flex">
+<span>def <span class="ident">query_buffers_allocs</span></span>(<span>self) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns pandas DataFrame with memory allocations and deallocations.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def query_buffers_allocs(self) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;
+    Returns pandas DataFrame with memory allocations and deallocations.
+    &#34;&#34;&#34;
+    df = self._db.query_buffers_allocs(self._event_timerange)
+    return df</code></pre>
+</details>
+</dd>
+<dt id="towl-user.towl.user.ScenarioView.query_events"><code class="name flex">
+<span>def <span class="ident">query_events</span></span>(<span>self) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns pandas DataFrame with events</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def query_events(self) -&gt; pd.DataFrame:
+    &#34;Returns pandas DataFrame with events&#34;
+    df = self._db.query_events(self.event_timerange)
+    return df</code></pre>
+</details>
+</dd>
+<dt id="towl-user.towl.user.ScenarioView.query_memory_usage"><code class="name flex">
+<span>def <span class="ident">query_memory_usage</span></span>(<span>self, tag: Optional[str] = None) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns pandas DataFrame with memory usage.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def query_memory_usage(self, tag: Optional[str] = None) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;
+    Returns pandas DataFrame with memory usage.
+    &#34;&#34;&#34;
+    df = self._db.query_devmem_summary(self.event_timerange, tag)
+
+    df[&#34;workspace_str&#34;] = df[&#34;workspace&#34;].map(ustrings.memory_str)
+    df[&#34;persistent_str&#34;] = df[&#34;persistent&#34;].map(ustrings.memory_str)
+    df[&#34;used_str&#34;] = df[&#34;used&#34;].map(ustrings.memory_str)
+
+    # df[&#34;addr_hex&#34;] = df[&#34;addr&#34;].map(ustrings.to_hex)
+    # df[&#34;size_str&#34;] = df[&#34;size&#34;].map(ustrings.memory_str)
+
+    return df</code></pre>
+</details>
+</dd>
+<dt id="towl-user.towl.user.ScenarioView.query_python_log"><code class="name flex">
+<span>def <span class="ident">query_python_log</span></span>(<span>self, *, map_basename=False) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns pandas DataFrame with python log events</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def query_python_log(self, *, map_basename=False) -&gt; pd.DataFrame:
+    &#34;Returns pandas DataFrame with python log events&#34;
+    df = self._query_python_log_full(map_basename=map_basename)
+    del df[&#34;content&#34;]
+    return df</code></pre>
+</details>
+</dd>
+<dt id="towl-user.towl.user.ScenarioView.query_recipe_launch_by_event_ident"><code class="name flex">
+<span>def <span class="ident">query_recipe_launch_by_event_ident</span></span>(<span>self, event_ident: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns <code><a title="towl-user.towl.user.RecipeLaunch" href="#towl-user.towl.user.RecipeLaunch">RecipeLaunch</a></code> representation for given <code>event_ident</code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def query_recipe_launch_by_event_ident(self, event_ident: int):
+    &#34;Returns `RecipeLaunch` representation for given `event_ident`&#34;
+    return self._common_view.query_recipe_launch_by_event_ident(event_ident)</code></pre>
+</details>
+</dd>
+<dt id="towl-user.towl.user.ScenarioView.query_recipe_launch_by_launch_ident"><code class="name flex">
+<span>def <span class="ident">query_recipe_launch_by_launch_ident</span></span>(<span>self, launch_ident: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns <code><a title="towl-user.towl.user.RecipeLaunch" href="#towl-user.towl.user.RecipeLaunch">RecipeLaunch</a></code> representation for given <code>launch_ident</code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def query_recipe_launch_by_launch_ident(self, launch_ident: int):
+    &#34;Returns `RecipeLaunch` representation for given `launch_ident`&#34;
+    return self._common_view.query_recipe_launch_by_launch_ident(launch_ident)</code></pre>
+</details>
+</dd>
+<dt id="towl-user.towl.user.ScenarioView.query_recipe_launches"><code class="name flex">
+<span>def <span class="ident">query_recipe_launches</span></span>(<span>self) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns pandas DataFrame with recipe launches.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def query_recipe_launches(self) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;
+    Returns pandas DataFrame with recipe launches.
+    &#34;&#34;&#34;
+    df = self._db.query_launches(self._event_timerange)
+    return df</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="towl-user.towl" href="../index.html">towl-user.towl</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="towl-user.towl.user.lib" href="lib/index.html">towl-user.towl.user.lib</a></code></li>
+<li><code><a title="towl-user.towl.user.plots" href="plots/index.html">towl-user.towl.user.plots</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="towl-user.towl.user.EventTimeRange" href="#towl-user.towl.user.EventTimeRange">EventTimeRange</a></code></h4>
+<ul class="">
+<li><code><a title="towl-user.towl.user.EventTimeRange.alter" href="#towl-user.towl.user.EventTimeRange.alter">alter</a></code></li>
+<li><code><a title="towl-user.towl.user.EventTimeRange.begin" href="#towl-user.towl.user.EventTimeRange.begin">begin</a></code></li>
+<li><code><a title="towl-user.towl.user.EventTimeRange.end" href="#towl-user.towl.user.EventTimeRange.end">end</a></code></li>
+<li><code><a title="towl-user.towl.user.EventTimeRange.has" href="#towl-user.towl.user.EventTimeRange.has">has</a></code></li>
+<li><code><a title="towl-user.towl.user.EventTimeRange.make" href="#towl-user.towl.user.EventTimeRange.make">make</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-user.towl.user.RecipeLaunch" href="#towl-user.towl.user.RecipeLaunch">RecipeLaunch</a></code></h4>
+<ul class="">
+<li><code><a title="towl-user.towl.user.RecipeLaunch.event_lifetime" href="#towl-user.towl.user.RecipeLaunch.event_lifetime">event_lifetime</a></code></li>
+<li><code><a title="towl-user.towl.user.RecipeLaunch.query_recipe_launch_buffers" href="#towl-user.towl.user.RecipeLaunch.query_recipe_launch_buffers">query_recipe_launch_buffers</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-user.towl.user.Scenario" href="#towl-user.towl.user.Scenario">Scenario</a></code></h4>
+<ul class="">
+<li><code><a title="towl-user.towl.user.Scenario.global_event_timerange" href="#towl-user.towl.user.Scenario.global_event_timerange">global_event_timerange</a></code></li>
+<li><code><a title="towl-user.towl.user.Scenario.make_global_view" href="#towl-user.towl.user.Scenario.make_global_view">make_global_view</a></code></li>
+<li><code><a title="towl-user.towl.user.Scenario.make_view" href="#towl-user.towl.user.Scenario.make_view">make_view</a></code></li>
+<li><code><a title="towl-user.towl.user.Scenario.python_code" href="#towl-user.towl.user.Scenario.python_code">python_code</a></code></li>
+<li><code><a title="towl-user.towl.user.Scenario.query_recipe_launch_by_event_ident" href="#towl-user.towl.user.Scenario.query_recipe_launch_by_event_ident">query_recipe_launch_by_event_ident</a></code></li>
+<li><code><a title="towl-user.towl.user.Scenario.query_recipe_launch_by_launch_ident" href="#towl-user.towl.user.Scenario.query_recipe_launch_by_launch_ident">query_recipe_launch_by_launch_ident</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-user.towl.user.ScenarioView" href="#towl-user.towl.user.ScenarioView">ScenarioView</a></code></h4>
+<ul class="">
+<li><code><a title="towl-user.towl.user.ScenarioView.event_timerange" href="#towl-user.towl.user.ScenarioView.event_timerange">event_timerange</a></code></li>
+<li><code><a title="towl-user.towl.user.ScenarioView.make_view" href="#towl-user.towl.user.ScenarioView.make_view">make_view</a></code></li>
+<li><code><a title="towl-user.towl.user.ScenarioView.query_buffers_allocs" href="#towl-user.towl.user.ScenarioView.query_buffers_allocs">query_buffers_allocs</a></code></li>
+<li><code><a title="towl-user.towl.user.ScenarioView.query_events" href="#towl-user.towl.user.ScenarioView.query_events">query_events</a></code></li>
+<li><code><a title="towl-user.towl.user.ScenarioView.query_memory_usage" href="#towl-user.towl.user.ScenarioView.query_memory_usage">query_memory_usage</a></code></li>
+<li><code><a title="towl-user.towl.user.ScenarioView.query_python_log" href="#towl-user.towl.user.ScenarioView.query_python_log">query_python_log</a></code></li>
+<li><code><a title="towl-user.towl.user.ScenarioView.query_recipe_launch_by_event_ident" href="#towl-user.towl.user.ScenarioView.query_recipe_launch_by_event_ident">query_recipe_launch_by_event_ident</a></code></li>
+<li><code><a title="towl-user.towl.user.ScenarioView.query_recipe_launch_by_launch_ident" href="#towl-user.towl.user.ScenarioView.query_recipe_launch_by_launch_ident">query_recipe_launch_by_launch_ident</a></code></li>
+<li><code><a title="towl-user.towl.user.ScenarioView.query_recipe_launches" href="#towl-user.towl.user.ScenarioView.query_recipe_launches">query_recipe_launches</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

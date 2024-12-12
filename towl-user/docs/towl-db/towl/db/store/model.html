@@ -1,0 +1,1227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>towl-db.towl.db.store.model API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>towl-db.towl.db.store.model</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">################################################################################
+# Copyright 2024 Intel Corporation
+#
+# Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+################################################################################
+
+from typing import NamedTuple, List, Optional
+import enum
+from towl.db.utils.pydantic import ConfiguredBaseModel
+from datetime import datetime
+
+
+class EventKind(enum.IntEnum):
+    DEVMEM_BUF = 0
+    DEVMEM_SUMMARY = 1
+    RECIPE_LAUNCH = 2
+    RECIPE_FINISHED = 3
+    PYTHON_LOG = 4
+
+
+class Event(NamedTuple):
+    ident: int
+    kind: EventKind
+    reference: int
+    timestamp: datetime
+    tid: int
+
+
+class DeviceMemoryShortSummaryEvent(NamedTuple):
+    ident: int
+    used: int
+    workspace: int
+    persistent: int
+    tag: str
+
+
+class DevMemBufEvent(NamedTuple):
+    ident: int
+    buffer_ident: int
+    is_allocation: bool
+
+
+class DevMemBufFreeEvent(NamedTuple):
+    pass
+
+
+class FrameInfo(ConfiguredBaseModel):
+    filename: str
+    funcname: str
+    line: int
+
+    @staticmethod
+    def make(frame):
+        filename = frame.f_code.co_filename
+        line = frame.f_lineno
+        funcname = frame.f_code.co_name
+        return FrameInfo(filename=filename, line=line, funcname=funcname)
+
+
+class DataBufferMeta(ConfiguredBaseModel):
+    unknown: bool
+
+    alloc_frames: List[List[FrameInfo]] = []
+
+
+class DataBuffer(ConfiguredBaseModel):
+    ident: int
+    addr: int
+    size: int
+    stream: int
+    meta: DataBufferMeta
+    event_malloc: Optional[int]
+    event_free: Optional[int]
+    event_first_launch: Optional[int]
+    event_last_launch: Optional[int]
+
+    @property
+    def name(self) -&gt; str:
+        if self.meta.unknown:
+            return f&#34;UNK_{self.ident}&#34;
+        else:
+            return f&#34;BUF_{self.ident}&#34;
+
+
+class DataRecipeLaunchBuffer(ConfiguredBaseModel):
+    buffer: int
+    offset: int
+    index: int
+    synapse_name: str
+
+
+class DataRecipeLaunchMeta(NamedTuple):
+    pass
+
+
+class DataRecipeLaunch(ConfiguredBaseModel):
+    ident: int
+    handle: int
+    workspace: int
+    buffers: List[DataRecipeLaunchBuffer]
+    meta: DataRecipeLaunchMeta
+    recipe_name: str
+    event_launch: Optional[int]
+    event_finished: Optional[int]
+
+    @property
+    def name(self) -&gt; str:
+        return f&#34;LAUNCH_{self.ident}&#34;
+
+
+class PythonLogEvent(ConfiguredBaseModel):
+    ident: int
+    command: str
+    message: Optional[str]
+    funcname: Optional[str]
+    filename: Optional[str]
+    lineno: Optional[int]
+    content: Optional[str]
+    mark_id: Optional[int]</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="towl-db.towl.db.store.model.DataBuffer"><code class="flex name class">
+<span>class <span class="ident">DataBuffer</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Usage docs: <a href="https://docs.pydantic.dev/2.9/concepts/models/">https://docs.pydantic.dev/2.9/concepts/models/</a></p>
+<p>A base class for creating Pydantic models.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>__class_vars__</code></strong></dt>
+<dd>The names of the class variables defined on the model.</dd>
+<dt><strong><code>__private_attributes__</code></strong></dt>
+<dd>Metadata about the private attributes of the model.</dd>
+<dt><strong><code>__signature__</code></strong></dt>
+<dd>The synthesized <code>__init__</code> [<code>Signature</code>][inspect.Signature] of the model.</dd>
+<dt><strong><code>__pydantic_complete__</code></strong></dt>
+<dd>Whether model building is completed, or if there are still undefined fields.</dd>
+<dt><strong><code>__pydantic_core_schema__</code></strong></dt>
+<dd>The core schema of the model.</dd>
+<dt><strong><code>__pydantic_custom_init__</code></strong></dt>
+<dd>Whether the model has a custom <code>__init__</code> function.</dd>
+<dt><strong><code>__pydantic_decorators__</code></strong></dt>
+<dd>Metadata containing the decorators defined on the model.
+This replaces <code>Model.__validators__</code> and <code>Model.__root_validators__</code> from Pydantic V1.</dd>
+<dt><strong><code>__pydantic_generic_metadata__</code></strong></dt>
+<dd>Metadata for generic models; contains data used for a similar purpose to
+<strong>args</strong>, <strong>origin</strong>, <strong>parameters</strong> in typing-module generics. May eventually be replaced by these.</dd>
+<dt><strong><code>__pydantic_parent_namespace__</code></strong></dt>
+<dd>Parent namespace of the model, used for automatic rebuilding of models.</dd>
+<dt><strong><code>__pydantic_post_init__</code></strong></dt>
+<dd>The name of the post-init method for the model, if defined.</dd>
+<dt><strong><code>__pydantic_root_model__</code></strong></dt>
+<dd>Whether the model is a [<code>RootModel</code>][pydantic.root_model.RootModel].</dd>
+<dt><strong><code>__pydantic_serializer__</code></strong></dt>
+<dd>The <code>pydantic-core</code> <code>SchemaSerializer</code> used to dump instances of the model.</dd>
+<dt><strong><code>__pydantic_validator__</code></strong></dt>
+<dd>The <code>pydantic-core</code> <code>SchemaValidator</code> used to validate instances of the model.</dd>
+<dt><strong><code>__pydantic_extra__</code></strong></dt>
+<dd>A dictionary containing extra values, if [<code>extra</code>][pydantic.config.ConfigDict.extra]
+is set to <code>'allow'</code>.</dd>
+<dt><strong><code>__pydantic_fields_set__</code></strong></dt>
+<dd>The names of fields explicitly set during instantiation.</dd>
+<dt><strong><code>__pydantic_private__</code></strong></dt>
+<dd>Values of private attributes set on the model instance.</dd>
+</dl>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>self</code> is explicitly positional-only to allow <code>self</code> as a field name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DataBuffer(ConfiguredBaseModel):
+    ident: int
+    addr: int
+    size: int
+    stream: int
+    meta: DataBufferMeta
+    event_malloc: Optional[int]
+    event_free: Optional[int]
+    event_first_launch: Optional[int]
+    event_last_launch: Optional[int]
+
+    @property
+    def name(self) -&gt; str:
+        if self.meta.unknown:
+            return f&#34;UNK_{self.ident}&#34;
+        else:
+            return f&#34;BUF_{self.ident}&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>towl.db.utils.pydantic.ConfiguredBaseModel</li>
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.model.DataBuffer.addr"><code class="name">var <span class="ident">addr</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataBuffer.event_first_launch"><code class="name">var <span class="ident">event_first_launch</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataBuffer.event_free"><code class="name">var <span class="ident">event_free</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataBuffer.event_last_launch"><code class="name">var <span class="ident">event_last_launch</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataBuffer.event_malloc"><code class="name">var <span class="ident">event_malloc</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataBuffer.ident"><code class="name">var <span class="ident">ident</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataBuffer.meta"><code class="name">var <span class="ident">meta</span> : towl-db.towl.db.store.model.DataBufferMeta</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataBuffer.model_computed_fields"><code class="name">var <span class="ident">model_computed_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataBuffer.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataBuffer.model_fields"><code class="name">var <span class="ident">model_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataBuffer.size"><code class="name">var <span class="ident">size</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataBuffer.stream"><code class="name">var <span class="ident">stream</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.model.DataBuffer.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def name(self) -&gt; str:
+    if self.meta.unknown:
+        return f&#34;UNK_{self.ident}&#34;
+    else:
+        return f&#34;BUF_{self.ident}&#34;</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataBufferMeta"><code class="flex name class">
+<span>class <span class="ident">DataBufferMeta</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Usage docs: <a href="https://docs.pydantic.dev/2.9/concepts/models/">https://docs.pydantic.dev/2.9/concepts/models/</a></p>
+<p>A base class for creating Pydantic models.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>__class_vars__</code></strong></dt>
+<dd>The names of the class variables defined on the model.</dd>
+<dt><strong><code>__private_attributes__</code></strong></dt>
+<dd>Metadata about the private attributes of the model.</dd>
+<dt><strong><code>__signature__</code></strong></dt>
+<dd>The synthesized <code>__init__</code> [<code>Signature</code>][inspect.Signature] of the model.</dd>
+<dt><strong><code>__pydantic_complete__</code></strong></dt>
+<dd>Whether model building is completed, or if there are still undefined fields.</dd>
+<dt><strong><code>__pydantic_core_schema__</code></strong></dt>
+<dd>The core schema of the model.</dd>
+<dt><strong><code>__pydantic_custom_init__</code></strong></dt>
+<dd>Whether the model has a custom <code>__init__</code> function.</dd>
+<dt><strong><code>__pydantic_decorators__</code></strong></dt>
+<dd>Metadata containing the decorators defined on the model.
+This replaces <code>Model.__validators__</code> and <code>Model.__root_validators__</code> from Pydantic V1.</dd>
+<dt><strong><code>__pydantic_generic_metadata__</code></strong></dt>
+<dd>Metadata for generic models; contains data used for a similar purpose to
+<strong>args</strong>, <strong>origin</strong>, <strong>parameters</strong> in typing-module generics. May eventually be replaced by these.</dd>
+<dt><strong><code>__pydantic_parent_namespace__</code></strong></dt>
+<dd>Parent namespace of the model, used for automatic rebuilding of models.</dd>
+<dt><strong><code>__pydantic_post_init__</code></strong></dt>
+<dd>The name of the post-init method for the model, if defined.</dd>
+<dt><strong><code>__pydantic_root_model__</code></strong></dt>
+<dd>Whether the model is a [<code>RootModel</code>][pydantic.root_model.RootModel].</dd>
+<dt><strong><code>__pydantic_serializer__</code></strong></dt>
+<dd>The <code>pydantic-core</code> <code>SchemaSerializer</code> used to dump instances of the model.</dd>
+<dt><strong><code>__pydantic_validator__</code></strong></dt>
+<dd>The <code>pydantic-core</code> <code>SchemaValidator</code> used to validate instances of the model.</dd>
+<dt><strong><code>__pydantic_extra__</code></strong></dt>
+<dd>A dictionary containing extra values, if [<code>extra</code>][pydantic.config.ConfigDict.extra]
+is set to <code>'allow'</code>.</dd>
+<dt><strong><code>__pydantic_fields_set__</code></strong></dt>
+<dd>The names of fields explicitly set during instantiation.</dd>
+<dt><strong><code>__pydantic_private__</code></strong></dt>
+<dd>Values of private attributes set on the model instance.</dd>
+</dl>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>self</code> is explicitly positional-only to allow <code>self</code> as a field name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DataBufferMeta(ConfiguredBaseModel):
+    unknown: bool
+
+    alloc_frames: List[List[FrameInfo]] = []</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>towl.db.utils.pydantic.ConfiguredBaseModel</li>
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.model.DataBufferMeta.alloc_frames"><code class="name">var <span class="ident">alloc_frames</span> : List[List[towl-db.towl.db.store.model.FrameInfo]]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataBufferMeta.model_computed_fields"><code class="name">var <span class="ident">model_computed_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataBufferMeta.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataBufferMeta.model_fields"><code class="name">var <span class="ident">model_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataBufferMeta.unknown"><code class="name">var <span class="ident">unknown</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunch"><code class="flex name class">
+<span>class <span class="ident">DataRecipeLaunch</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Usage docs: <a href="https://docs.pydantic.dev/2.9/concepts/models/">https://docs.pydantic.dev/2.9/concepts/models/</a></p>
+<p>A base class for creating Pydantic models.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>__class_vars__</code></strong></dt>
+<dd>The names of the class variables defined on the model.</dd>
+<dt><strong><code>__private_attributes__</code></strong></dt>
+<dd>Metadata about the private attributes of the model.</dd>
+<dt><strong><code>__signature__</code></strong></dt>
+<dd>The synthesized <code>__init__</code> [<code>Signature</code>][inspect.Signature] of the model.</dd>
+<dt><strong><code>__pydantic_complete__</code></strong></dt>
+<dd>Whether model building is completed, or if there are still undefined fields.</dd>
+<dt><strong><code>__pydantic_core_schema__</code></strong></dt>
+<dd>The core schema of the model.</dd>
+<dt><strong><code>__pydantic_custom_init__</code></strong></dt>
+<dd>Whether the model has a custom <code>__init__</code> function.</dd>
+<dt><strong><code>__pydantic_decorators__</code></strong></dt>
+<dd>Metadata containing the decorators defined on the model.
+This replaces <code>Model.__validators__</code> and <code>Model.__root_validators__</code> from Pydantic V1.</dd>
+<dt><strong><code>__pydantic_generic_metadata__</code></strong></dt>
+<dd>Metadata for generic models; contains data used for a similar purpose to
+<strong>args</strong>, <strong>origin</strong>, <strong>parameters</strong> in typing-module generics. May eventually be replaced by these.</dd>
+<dt><strong><code>__pydantic_parent_namespace__</code></strong></dt>
+<dd>Parent namespace of the model, used for automatic rebuilding of models.</dd>
+<dt><strong><code>__pydantic_post_init__</code></strong></dt>
+<dd>The name of the post-init method for the model, if defined.</dd>
+<dt><strong><code>__pydantic_root_model__</code></strong></dt>
+<dd>Whether the model is a [<code>RootModel</code>][pydantic.root_model.RootModel].</dd>
+<dt><strong><code>__pydantic_serializer__</code></strong></dt>
+<dd>The <code>pydantic-core</code> <code>SchemaSerializer</code> used to dump instances of the model.</dd>
+<dt><strong><code>__pydantic_validator__</code></strong></dt>
+<dd>The <code>pydantic-core</code> <code>SchemaValidator</code> used to validate instances of the model.</dd>
+<dt><strong><code>__pydantic_extra__</code></strong></dt>
+<dd>A dictionary containing extra values, if [<code>extra</code>][pydantic.config.ConfigDict.extra]
+is set to <code>'allow'</code>.</dd>
+<dt><strong><code>__pydantic_fields_set__</code></strong></dt>
+<dd>The names of fields explicitly set during instantiation.</dd>
+<dt><strong><code>__pydantic_private__</code></strong></dt>
+<dd>Values of private attributes set on the model instance.</dd>
+</dl>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>self</code> is explicitly positional-only to allow <code>self</code> as a field name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DataRecipeLaunch(ConfiguredBaseModel):
+    ident: int
+    handle: int
+    workspace: int
+    buffers: List[DataRecipeLaunchBuffer]
+    meta: DataRecipeLaunchMeta
+    recipe_name: str
+    event_launch: Optional[int]
+    event_finished: Optional[int]
+
+    @property
+    def name(self) -&gt; str:
+        return f&#34;LAUNCH_{self.ident}&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>towl.db.utils.pydantic.ConfiguredBaseModel</li>
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunch.buffers"><code class="name">var <span class="ident">buffers</span> : List[towl-db.towl.db.store.model.DataRecipeLaunchBuffer]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunch.event_finished"><code class="name">var <span class="ident">event_finished</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunch.event_launch"><code class="name">var <span class="ident">event_launch</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunch.handle"><code class="name">var <span class="ident">handle</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunch.ident"><code class="name">var <span class="ident">ident</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunch.meta"><code class="name">var <span class="ident">meta</span> : towl-db.towl.db.store.model.DataRecipeLaunchMeta</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunch.model_computed_fields"><code class="name">var <span class="ident">model_computed_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunch.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunch.model_fields"><code class="name">var <span class="ident">model_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunch.recipe_name"><code class="name">var <span class="ident">recipe_name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunch.workspace"><code class="name">var <span class="ident">workspace</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunch.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def name(self) -&gt; str:
+    return f&#34;LAUNCH_{self.ident}&#34;</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunchBuffer"><code class="flex name class">
+<span>class <span class="ident">DataRecipeLaunchBuffer</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Usage docs: <a href="https://docs.pydantic.dev/2.9/concepts/models/">https://docs.pydantic.dev/2.9/concepts/models/</a></p>
+<p>A base class for creating Pydantic models.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>__class_vars__</code></strong></dt>
+<dd>The names of the class variables defined on the model.</dd>
+<dt><strong><code>__private_attributes__</code></strong></dt>
+<dd>Metadata about the private attributes of the model.</dd>
+<dt><strong><code>__signature__</code></strong></dt>
+<dd>The synthesized <code>__init__</code> [<code>Signature</code>][inspect.Signature] of the model.</dd>
+<dt><strong><code>__pydantic_complete__</code></strong></dt>
+<dd>Whether model building is completed, or if there are still undefined fields.</dd>
+<dt><strong><code>__pydantic_core_schema__</code></strong></dt>
+<dd>The core schema of the model.</dd>
+<dt><strong><code>__pydantic_custom_init__</code></strong></dt>
+<dd>Whether the model has a custom <code>__init__</code> function.</dd>
+<dt><strong><code>__pydantic_decorators__</code></strong></dt>
+<dd>Metadata containing the decorators defined on the model.
+This replaces <code>Model.__validators__</code> and <code>Model.__root_validators__</code> from Pydantic V1.</dd>
+<dt><strong><code>__pydantic_generic_metadata__</code></strong></dt>
+<dd>Metadata for generic models; contains data used for a similar purpose to
+<strong>args</strong>, <strong>origin</strong>, <strong>parameters</strong> in typing-module generics. May eventually be replaced by these.</dd>
+<dt><strong><code>__pydantic_parent_namespace__</code></strong></dt>
+<dd>Parent namespace of the model, used for automatic rebuilding of models.</dd>
+<dt><strong><code>__pydantic_post_init__</code></strong></dt>
+<dd>The name of the post-init method for the model, if defined.</dd>
+<dt><strong><code>__pydantic_root_model__</code></strong></dt>
+<dd>Whether the model is a [<code>RootModel</code>][pydantic.root_model.RootModel].</dd>
+<dt><strong><code>__pydantic_serializer__</code></strong></dt>
+<dd>The <code>pydantic-core</code> <code>SchemaSerializer</code> used to dump instances of the model.</dd>
+<dt><strong><code>__pydantic_validator__</code></strong></dt>
+<dd>The <code>pydantic-core</code> <code>SchemaValidator</code> used to validate instances of the model.</dd>
+<dt><strong><code>__pydantic_extra__</code></strong></dt>
+<dd>A dictionary containing extra values, if [<code>extra</code>][pydantic.config.ConfigDict.extra]
+is set to <code>'allow'</code>.</dd>
+<dt><strong><code>__pydantic_fields_set__</code></strong></dt>
+<dd>The names of fields explicitly set during instantiation.</dd>
+<dt><strong><code>__pydantic_private__</code></strong></dt>
+<dd>Values of private attributes set on the model instance.</dd>
+</dl>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>self</code> is explicitly positional-only to allow <code>self</code> as a field name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DataRecipeLaunchBuffer(ConfiguredBaseModel):
+    buffer: int
+    offset: int
+    index: int
+    synapse_name: str</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>towl.db.utils.pydantic.ConfiguredBaseModel</li>
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunchBuffer.buffer"><code class="name">var <span class="ident">buffer</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunchBuffer.index"><code class="name">var <span class="ident">index</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunchBuffer.model_computed_fields"><code class="name">var <span class="ident">model_computed_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunchBuffer.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunchBuffer.model_fields"><code class="name">var <span class="ident">model_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunchBuffer.offset"><code class="name">var <span class="ident">offset</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunchBuffer.synapse_name"><code class="name">var <span class="ident">synapse_name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="towl-db.towl.db.store.model.DataRecipeLaunchMeta"><code class="flex name class">
+<span>class <span class="ident">DataRecipeLaunchMeta</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>DataRecipeLaunchMeta()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DataRecipeLaunchMeta(NamedTuple):
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.tuple</li>
+</ul>
+</dd>
+<dt id="towl-db.towl.db.store.model.DevMemBufEvent"><code class="flex name class">
+<span>class <span class="ident">DevMemBufEvent</span></span>
+<span>(</span><span>ident: int, buffer_ident: int, is_allocation: bool)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>DevMemBufEvent(ident, buffer_ident, is_allocation)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DevMemBufEvent(NamedTuple):
+    ident: int
+    buffer_ident: int
+    is_allocation: bool</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.tuple</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.model.DevMemBufEvent.buffer_ident"><code class="name">var <span class="ident">buffer_ident</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 1</p></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DevMemBufEvent.ident"><code class="name">var <span class="ident">ident</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 0</p></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DevMemBufEvent.is_allocation"><code class="name">var <span class="ident">is_allocation</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 2</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="towl-db.towl.db.store.model.DevMemBufFreeEvent"><code class="flex name class">
+<span>class <span class="ident">DevMemBufFreeEvent</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>DevMemBufFreeEvent()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DevMemBufFreeEvent(NamedTuple):
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.tuple</li>
+</ul>
+</dd>
+<dt id="towl-db.towl.db.store.model.DeviceMemoryShortSummaryEvent"><code class="flex name class">
+<span>class <span class="ident">DeviceMemoryShortSummaryEvent</span></span>
+<span>(</span><span>ident: int, used: int, workspace: int, persistent: int, tag: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>DeviceMemoryShortSummaryEvent(ident, used, workspace, persistent, tag)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DeviceMemoryShortSummaryEvent(NamedTuple):
+    ident: int
+    used: int
+    workspace: int
+    persistent: int
+    tag: str</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.tuple</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.model.DeviceMemoryShortSummaryEvent.ident"><code class="name">var <span class="ident">ident</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 0</p></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DeviceMemoryShortSummaryEvent.persistent"><code class="name">var <span class="ident">persistent</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 3</p></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DeviceMemoryShortSummaryEvent.tag"><code class="name">var <span class="ident">tag</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 4</p></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DeviceMemoryShortSummaryEvent.used"><code class="name">var <span class="ident">used</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 1</p></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.DeviceMemoryShortSummaryEvent.workspace"><code class="name">var <span class="ident">workspace</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 2</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="towl-db.towl.db.store.model.Event"><code class="flex name class">
+<span>class <span class="ident">Event</span></span>
+<span>(</span><span>ident: int, kind: towl-db.towl.db.store.model.EventKind, reference: int, timestamp: datetime.datetime, tid: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Event(ident, kind, reference, timestamp, tid)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Event(NamedTuple):
+    ident: int
+    kind: EventKind
+    reference: int
+    timestamp: datetime
+    tid: int</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.tuple</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.model.Event.ident"><code class="name">var <span class="ident">ident</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 0</p></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.Event.kind"><code class="name">var <span class="ident">kind</span> : towl-db.towl.db.store.model.EventKind</code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 1</p></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.Event.reference"><code class="name">var <span class="ident">reference</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 2</p></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.Event.tid"><code class="name">var <span class="ident">tid</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 4</p></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.Event.timestamp"><code class="name">var <span class="ident">timestamp</span> : datetime.datetime</code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 3</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="towl-db.towl.db.store.model.EventKind"><code class="flex name class">
+<span>class <span class="ident">EventKind</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class EventKind(enum.IntEnum):
+    DEVMEM_BUF = 0
+    DEVMEM_SUMMARY = 1
+    RECIPE_LAUNCH = 2
+    RECIPE_FINISHED = 3
+    PYTHON_LOG = 4</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.IntEnum</li>
+<li>builtins.int</li>
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.model.EventKind.DEVMEM_BUF"><code class="name">var <span class="ident">DEVMEM_BUF</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.EventKind.DEVMEM_SUMMARY"><code class="name">var <span class="ident">DEVMEM_SUMMARY</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.EventKind.PYTHON_LOG"><code class="name">var <span class="ident">PYTHON_LOG</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.EventKind.RECIPE_FINISHED"><code class="name">var <span class="ident">RECIPE_FINISHED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.EventKind.RECIPE_LAUNCH"><code class="name">var <span class="ident">RECIPE_LAUNCH</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="towl-db.towl.db.store.model.FrameInfo"><code class="flex name class">
+<span>class <span class="ident">FrameInfo</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Usage docs: <a href="https://docs.pydantic.dev/2.9/concepts/models/">https://docs.pydantic.dev/2.9/concepts/models/</a></p>
+<p>A base class for creating Pydantic models.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>__class_vars__</code></strong></dt>
+<dd>The names of the class variables defined on the model.</dd>
+<dt><strong><code>__private_attributes__</code></strong></dt>
+<dd>Metadata about the private attributes of the model.</dd>
+<dt><strong><code>__signature__</code></strong></dt>
+<dd>The synthesized <code>__init__</code> [<code>Signature</code>][inspect.Signature] of the model.</dd>
+<dt><strong><code>__pydantic_complete__</code></strong></dt>
+<dd>Whether model building is completed, or if there are still undefined fields.</dd>
+<dt><strong><code>__pydantic_core_schema__</code></strong></dt>
+<dd>The core schema of the model.</dd>
+<dt><strong><code>__pydantic_custom_init__</code></strong></dt>
+<dd>Whether the model has a custom <code>__init__</code> function.</dd>
+<dt><strong><code>__pydantic_decorators__</code></strong></dt>
+<dd>Metadata containing the decorators defined on the model.
+This replaces <code>Model.__validators__</code> and <code>Model.__root_validators__</code> from Pydantic V1.</dd>
+<dt><strong><code>__pydantic_generic_metadata__</code></strong></dt>
+<dd>Metadata for generic models; contains data used for a similar purpose to
+<strong>args</strong>, <strong>origin</strong>, <strong>parameters</strong> in typing-module generics. May eventually be replaced by these.</dd>
+<dt><strong><code>__pydantic_parent_namespace__</code></strong></dt>
+<dd>Parent namespace of the model, used for automatic rebuilding of models.</dd>
+<dt><strong><code>__pydantic_post_init__</code></strong></dt>
+<dd>The name of the post-init method for the model, if defined.</dd>
+<dt><strong><code>__pydantic_root_model__</code></strong></dt>
+<dd>Whether the model is a [<code>RootModel</code>][pydantic.root_model.RootModel].</dd>
+<dt><strong><code>__pydantic_serializer__</code></strong></dt>
+<dd>The <code>pydantic-core</code> <code>SchemaSerializer</code> used to dump instances of the model.</dd>
+<dt><strong><code>__pydantic_validator__</code></strong></dt>
+<dd>The <code>pydantic-core</code> <code>SchemaValidator</code> used to validate instances of the model.</dd>
+<dt><strong><code>__pydantic_extra__</code></strong></dt>
+<dd>A dictionary containing extra values, if [<code>extra</code>][pydantic.config.ConfigDict.extra]
+is set to <code>'allow'</code>.</dd>
+<dt><strong><code>__pydantic_fields_set__</code></strong></dt>
+<dd>The names of fields explicitly set during instantiation.</dd>
+<dt><strong><code>__pydantic_private__</code></strong></dt>
+<dd>Values of private attributes set on the model instance.</dd>
+</dl>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>self</code> is explicitly positional-only to allow <code>self</code> as a field name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FrameInfo(ConfiguredBaseModel):
+    filename: str
+    funcname: str
+    line: int
+
+    @staticmethod
+    def make(frame):
+        filename = frame.f_code.co_filename
+        line = frame.f_lineno
+        funcname = frame.f_code.co_name
+        return FrameInfo(filename=filename, line=line, funcname=funcname)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>towl.db.utils.pydantic.ConfiguredBaseModel</li>
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.model.FrameInfo.filename"><code class="name">var <span class="ident">filename</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.FrameInfo.funcname"><code class="name">var <span class="ident">funcname</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.FrameInfo.line"><code class="name">var <span class="ident">line</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.FrameInfo.model_computed_fields"><code class="name">var <span class="ident">model_computed_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.FrameInfo.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.FrameInfo.model_fields"><code class="name">var <span class="ident">model_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="towl-db.towl.db.store.model.FrameInfo.make"><code class="name flex">
+<span>def <span class="ident">make</span></span>(<span>frame)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def make(frame):
+    filename = frame.f_code.co_filename
+    line = frame.f_lineno
+    funcname = frame.f_code.co_name
+    return FrameInfo(filename=filename, line=line, funcname=funcname)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="towl-db.towl.db.store.model.PythonLogEvent"><code class="flex name class">
+<span>class <span class="ident">PythonLogEvent</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Usage docs: <a href="https://docs.pydantic.dev/2.9/concepts/models/">https://docs.pydantic.dev/2.9/concepts/models/</a></p>
+<p>A base class for creating Pydantic models.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>__class_vars__</code></strong></dt>
+<dd>The names of the class variables defined on the model.</dd>
+<dt><strong><code>__private_attributes__</code></strong></dt>
+<dd>Metadata about the private attributes of the model.</dd>
+<dt><strong><code>__signature__</code></strong></dt>
+<dd>The synthesized <code>__init__</code> [<code>Signature</code>][inspect.Signature] of the model.</dd>
+<dt><strong><code>__pydantic_complete__</code></strong></dt>
+<dd>Whether model building is completed, or if there are still undefined fields.</dd>
+<dt><strong><code>__pydantic_core_schema__</code></strong></dt>
+<dd>The core schema of the model.</dd>
+<dt><strong><code>__pydantic_custom_init__</code></strong></dt>
+<dd>Whether the model has a custom <code>__init__</code> function.</dd>
+<dt><strong><code>__pydantic_decorators__</code></strong></dt>
+<dd>Metadata containing the decorators defined on the model.
+This replaces <code>Model.__validators__</code> and <code>Model.__root_validators__</code> from Pydantic V1.</dd>
+<dt><strong><code>__pydantic_generic_metadata__</code></strong></dt>
+<dd>Metadata for generic models; contains data used for a similar purpose to
+<strong>args</strong>, <strong>origin</strong>, <strong>parameters</strong> in typing-module generics. May eventually be replaced by these.</dd>
+<dt><strong><code>__pydantic_parent_namespace__</code></strong></dt>
+<dd>Parent namespace of the model, used for automatic rebuilding of models.</dd>
+<dt><strong><code>__pydantic_post_init__</code></strong></dt>
+<dd>The name of the post-init method for the model, if defined.</dd>
+<dt><strong><code>__pydantic_root_model__</code></strong></dt>
+<dd>Whether the model is a [<code>RootModel</code>][pydantic.root_model.RootModel].</dd>
+<dt><strong><code>__pydantic_serializer__</code></strong></dt>
+<dd>The <code>pydantic-core</code> <code>SchemaSerializer</code> used to dump instances of the model.</dd>
+<dt><strong><code>__pydantic_validator__</code></strong></dt>
+<dd>The <code>pydantic-core</code> <code>SchemaValidator</code> used to validate instances of the model.</dd>
+<dt><strong><code>__pydantic_extra__</code></strong></dt>
+<dd>A dictionary containing extra values, if [<code>extra</code>][pydantic.config.ConfigDict.extra]
+is set to <code>'allow'</code>.</dd>
+<dt><strong><code>__pydantic_fields_set__</code></strong></dt>
+<dd>The names of fields explicitly set during instantiation.</dd>
+<dt><strong><code>__pydantic_private__</code></strong></dt>
+<dd>Values of private attributes set on the model instance.</dd>
+</dl>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>self</code> is explicitly positional-only to allow <code>self</code> as a field name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PythonLogEvent(ConfiguredBaseModel):
+    ident: int
+    command: str
+    message: Optional[str]
+    funcname: Optional[str]
+    filename: Optional[str]
+    lineno: Optional[int]
+    content: Optional[str]
+    mark_id: Optional[int]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>towl.db.utils.pydantic.ConfiguredBaseModel</li>
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="towl-db.towl.db.store.model.PythonLogEvent.command"><code class="name">var <span class="ident">command</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.PythonLogEvent.content"><code class="name">var <span class="ident">content</span> : Optional[str]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.PythonLogEvent.filename"><code class="name">var <span class="ident">filename</span> : Optional[str]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.PythonLogEvent.funcname"><code class="name">var <span class="ident">funcname</span> : Optional[str]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.PythonLogEvent.ident"><code class="name">var <span class="ident">ident</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.PythonLogEvent.lineno"><code class="name">var <span class="ident">lineno</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.PythonLogEvent.mark_id"><code class="name">var <span class="ident">mark_id</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.PythonLogEvent.message"><code class="name">var <span class="ident">message</span> : Optional[str]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.PythonLogEvent.model_computed_fields"><code class="name">var <span class="ident">model_computed_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.PythonLogEvent.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="towl-db.towl.db.store.model.PythonLogEvent.model_fields"><code class="name">var <span class="ident">model_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="towl-db.towl.db.store" href="index.html">towl-db.towl.db.store</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="towl-db.towl.db.store.model.DataBuffer" href="#towl-db.towl.db.store.model.DataBuffer">DataBuffer</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.store.model.DataBuffer.addr" href="#towl-db.towl.db.store.model.DataBuffer.addr">addr</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataBuffer.event_first_launch" href="#towl-db.towl.db.store.model.DataBuffer.event_first_launch">event_first_launch</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataBuffer.event_free" href="#towl-db.towl.db.store.model.DataBuffer.event_free">event_free</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataBuffer.event_last_launch" href="#towl-db.towl.db.store.model.DataBuffer.event_last_launch">event_last_launch</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataBuffer.event_malloc" href="#towl-db.towl.db.store.model.DataBuffer.event_malloc">event_malloc</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataBuffer.ident" href="#towl-db.towl.db.store.model.DataBuffer.ident">ident</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataBuffer.meta" href="#towl-db.towl.db.store.model.DataBuffer.meta">meta</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataBuffer.model_computed_fields" href="#towl-db.towl.db.store.model.DataBuffer.model_computed_fields">model_computed_fields</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataBuffer.model_config" href="#towl-db.towl.db.store.model.DataBuffer.model_config">model_config</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataBuffer.model_fields" href="#towl-db.towl.db.store.model.DataBuffer.model_fields">model_fields</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataBuffer.name" href="#towl-db.towl.db.store.model.DataBuffer.name">name</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataBuffer.size" href="#towl-db.towl.db.store.model.DataBuffer.size">size</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataBuffer.stream" href="#towl-db.towl.db.store.model.DataBuffer.stream">stream</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-db.towl.db.store.model.DataBufferMeta" href="#towl-db.towl.db.store.model.DataBufferMeta">DataBufferMeta</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.store.model.DataBufferMeta.alloc_frames" href="#towl-db.towl.db.store.model.DataBufferMeta.alloc_frames">alloc_frames</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataBufferMeta.model_computed_fields" href="#towl-db.towl.db.store.model.DataBufferMeta.model_computed_fields">model_computed_fields</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataBufferMeta.model_config" href="#towl-db.towl.db.store.model.DataBufferMeta.model_config">model_config</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataBufferMeta.model_fields" href="#towl-db.towl.db.store.model.DataBufferMeta.model_fields">model_fields</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataBufferMeta.unknown" href="#towl-db.towl.db.store.model.DataBufferMeta.unknown">unknown</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-db.towl.db.store.model.DataRecipeLaunch" href="#towl-db.towl.db.store.model.DataRecipeLaunch">DataRecipeLaunch</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunch.buffers" href="#towl-db.towl.db.store.model.DataRecipeLaunch.buffers">buffers</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunch.event_finished" href="#towl-db.towl.db.store.model.DataRecipeLaunch.event_finished">event_finished</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunch.event_launch" href="#towl-db.towl.db.store.model.DataRecipeLaunch.event_launch">event_launch</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunch.handle" href="#towl-db.towl.db.store.model.DataRecipeLaunch.handle">handle</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunch.ident" href="#towl-db.towl.db.store.model.DataRecipeLaunch.ident">ident</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunch.meta" href="#towl-db.towl.db.store.model.DataRecipeLaunch.meta">meta</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunch.model_computed_fields" href="#towl-db.towl.db.store.model.DataRecipeLaunch.model_computed_fields">model_computed_fields</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunch.model_config" href="#towl-db.towl.db.store.model.DataRecipeLaunch.model_config">model_config</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunch.model_fields" href="#towl-db.towl.db.store.model.DataRecipeLaunch.model_fields">model_fields</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunch.name" href="#towl-db.towl.db.store.model.DataRecipeLaunch.name">name</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunch.recipe_name" href="#towl-db.towl.db.store.model.DataRecipeLaunch.recipe_name">recipe_name</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunch.workspace" href="#towl-db.towl.db.store.model.DataRecipeLaunch.workspace">workspace</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-db.towl.db.store.model.DataRecipeLaunchBuffer" href="#towl-db.towl.db.store.model.DataRecipeLaunchBuffer">DataRecipeLaunchBuffer</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunchBuffer.buffer" href="#towl-db.towl.db.store.model.DataRecipeLaunchBuffer.buffer">buffer</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunchBuffer.index" href="#towl-db.towl.db.store.model.DataRecipeLaunchBuffer.index">index</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunchBuffer.model_computed_fields" href="#towl-db.towl.db.store.model.DataRecipeLaunchBuffer.model_computed_fields">model_computed_fields</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunchBuffer.model_config" href="#towl-db.towl.db.store.model.DataRecipeLaunchBuffer.model_config">model_config</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunchBuffer.model_fields" href="#towl-db.towl.db.store.model.DataRecipeLaunchBuffer.model_fields">model_fields</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunchBuffer.offset" href="#towl-db.towl.db.store.model.DataRecipeLaunchBuffer.offset">offset</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DataRecipeLaunchBuffer.synapse_name" href="#towl-db.towl.db.store.model.DataRecipeLaunchBuffer.synapse_name">synapse_name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-db.towl.db.store.model.DataRecipeLaunchMeta" href="#towl-db.towl.db.store.model.DataRecipeLaunchMeta">DataRecipeLaunchMeta</a></code></h4>
+</li>
+<li>
+<h4><code><a title="towl-db.towl.db.store.model.DevMemBufEvent" href="#towl-db.towl.db.store.model.DevMemBufEvent">DevMemBufEvent</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.store.model.DevMemBufEvent.buffer_ident" href="#towl-db.towl.db.store.model.DevMemBufEvent.buffer_ident">buffer_ident</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DevMemBufEvent.ident" href="#towl-db.towl.db.store.model.DevMemBufEvent.ident">ident</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DevMemBufEvent.is_allocation" href="#towl-db.towl.db.store.model.DevMemBufEvent.is_allocation">is_allocation</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-db.towl.db.store.model.DevMemBufFreeEvent" href="#towl-db.towl.db.store.model.DevMemBufFreeEvent">DevMemBufFreeEvent</a></code></h4>
+</li>
+<li>
+<h4><code><a title="towl-db.towl.db.store.model.DeviceMemoryShortSummaryEvent" href="#towl-db.towl.db.store.model.DeviceMemoryShortSummaryEvent">DeviceMemoryShortSummaryEvent</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.store.model.DeviceMemoryShortSummaryEvent.ident" href="#towl-db.towl.db.store.model.DeviceMemoryShortSummaryEvent.ident">ident</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DeviceMemoryShortSummaryEvent.persistent" href="#towl-db.towl.db.store.model.DeviceMemoryShortSummaryEvent.persistent">persistent</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DeviceMemoryShortSummaryEvent.tag" href="#towl-db.towl.db.store.model.DeviceMemoryShortSummaryEvent.tag">tag</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DeviceMemoryShortSummaryEvent.used" href="#towl-db.towl.db.store.model.DeviceMemoryShortSummaryEvent.used">used</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.DeviceMemoryShortSummaryEvent.workspace" href="#towl-db.towl.db.store.model.DeviceMemoryShortSummaryEvent.workspace">workspace</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-db.towl.db.store.model.Event" href="#towl-db.towl.db.store.model.Event">Event</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.store.model.Event.ident" href="#towl-db.towl.db.store.model.Event.ident">ident</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.Event.kind" href="#towl-db.towl.db.store.model.Event.kind">kind</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.Event.reference" href="#towl-db.towl.db.store.model.Event.reference">reference</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.Event.tid" href="#towl-db.towl.db.store.model.Event.tid">tid</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.Event.timestamp" href="#towl-db.towl.db.store.model.Event.timestamp">timestamp</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-db.towl.db.store.model.EventKind" href="#towl-db.towl.db.store.model.EventKind">EventKind</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.store.model.EventKind.DEVMEM_BUF" href="#towl-db.towl.db.store.model.EventKind.DEVMEM_BUF">DEVMEM_BUF</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.EventKind.DEVMEM_SUMMARY" href="#towl-db.towl.db.store.model.EventKind.DEVMEM_SUMMARY">DEVMEM_SUMMARY</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.EventKind.PYTHON_LOG" href="#towl-db.towl.db.store.model.EventKind.PYTHON_LOG">PYTHON_LOG</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.EventKind.RECIPE_FINISHED" href="#towl-db.towl.db.store.model.EventKind.RECIPE_FINISHED">RECIPE_FINISHED</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.EventKind.RECIPE_LAUNCH" href="#towl-db.towl.db.store.model.EventKind.RECIPE_LAUNCH">RECIPE_LAUNCH</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-db.towl.db.store.model.FrameInfo" href="#towl-db.towl.db.store.model.FrameInfo">FrameInfo</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.store.model.FrameInfo.filename" href="#towl-db.towl.db.store.model.FrameInfo.filename">filename</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.FrameInfo.funcname" href="#towl-db.towl.db.store.model.FrameInfo.funcname">funcname</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.FrameInfo.line" href="#towl-db.towl.db.store.model.FrameInfo.line">line</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.FrameInfo.make" href="#towl-db.towl.db.store.model.FrameInfo.make">make</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.FrameInfo.model_computed_fields" href="#towl-db.towl.db.store.model.FrameInfo.model_computed_fields">model_computed_fields</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.FrameInfo.model_config" href="#towl-db.towl.db.store.model.FrameInfo.model_config">model_config</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.FrameInfo.model_fields" href="#towl-db.towl.db.store.model.FrameInfo.model_fields">model_fields</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-db.towl.db.store.model.PythonLogEvent" href="#towl-db.towl.db.store.model.PythonLogEvent">PythonLogEvent</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.store.model.PythonLogEvent.command" href="#towl-db.towl.db.store.model.PythonLogEvent.command">command</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.PythonLogEvent.content" href="#towl-db.towl.db.store.model.PythonLogEvent.content">content</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.PythonLogEvent.filename" href="#towl-db.towl.db.store.model.PythonLogEvent.filename">filename</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.PythonLogEvent.funcname" href="#towl-db.towl.db.store.model.PythonLogEvent.funcname">funcname</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.PythonLogEvent.ident" href="#towl-db.towl.db.store.model.PythonLogEvent.ident">ident</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.PythonLogEvent.lineno" href="#towl-db.towl.db.store.model.PythonLogEvent.lineno">lineno</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.PythonLogEvent.mark_id" href="#towl-db.towl.db.store.model.PythonLogEvent.mark_id">mark_id</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.PythonLogEvent.message" href="#towl-db.towl.db.store.model.PythonLogEvent.message">message</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.PythonLogEvent.model_computed_fields" href="#towl-db.towl.db.store.model.PythonLogEvent.model_computed_fields">model_computed_fields</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.PythonLogEvent.model_config" href="#towl-db.towl.db.store.model.PythonLogEvent.model_config">model_config</a></code></li>
+<li><code><a title="towl-db.towl.db.store.model.PythonLogEvent.model_fields" href="#towl-db.towl.db.store.model.PythonLogEvent.model_fields">model_fields</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

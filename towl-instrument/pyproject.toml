@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "towl-instrument"
+version = "1.19.0"
+description = "Towl OWL - instrumentation"
+authors = ["Pawel Wieczorek <pwieczorek@habana.ai>"]
+license = "LICENSE"
+readme = "README.md"
+packages = [ { include = "towl" } ]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

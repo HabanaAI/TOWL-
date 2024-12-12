@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>towl-db.towl.db.creator.devmem_manager API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>towl-db.towl.db.creator.devmem_manager</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">################################################################################
+# Copyright 2024 Intel Corporation
+#
+# Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+################################################################################
+
+import towl.db.store.model as model
+from towl.db.store import Database
+import logging
+from typing import Dict
+from .primary_key_generator import PrimaryKeyGenerator
+from towl.db.utils.typechecked import typechecked
+from .event_writer import EventWriter
+from datetime import datetime
+import bisect
+from typing import List, Tuple
+from intervaltree import IntervalTree
+
+
+class MemoryMap:
+    def __init__(self):
+        self._itree = IntervalTree()
+
+    def map_buffer(self, buffer: model.DataBuffer):
+        begin = buffer.addr
+        end = buffer.addr + buffer.size
+        self._itree.chop(begin, end)
+        self._itree.addi(begin, end, buffer)
+
+    def unmap_buffer(self, buffer: model.DataBuffer):
+        begin = buffer.addr
+        end = buffer.addr + buffer.size
+        self._itree.chop(begin, end)
+
+    def lookup(self, addr: int):
+        xs = self._itree.at(addr)
+        if len(xs) == 1:
+            return list(xs)[0].data
+        if len(xs) == 0:
+            return None
+        raise Exception(
+            f&#34;internal error: inconsistent data: len(xs)={len(xs)}&#34;)
+
+
+@typechecked
+class DevMemManager:
+    def __init__(self, db: Database, event_writer: EventWriter):
+        self._live_buffers: Dict[int, model.DataBuffer] = {}
+        self._get_buffer_by_addr_primary_key = PrimaryKeyGenerator()
+        self._get_operation_primary_key = PrimaryKeyGenerator()
+        self._get_summary_primary_key = PrimaryKeyGenerator()
+        self._event_writer = event_writer
+        self._db = db
+        self._memory_map = MemoryMap()
+        self._all_buffers = {}
+
+        self._needs_meta_update = set()
+
+    def malloc(
+        self,
+        timestamp: datetime,
+        tid: int,
+        addr: int,
+        size: int,
+        stream: int,
+        *,
+        unknown=False,
+    ):
+        meta = model.DataBufferMeta(unknown=unknown, alloc_frames=[])
+        buffer = model.DataBuffer(
+            ident=self._get_buffer_by_addr_primary_key(),
+            addr=addr,
+            size=size,
+            meta=meta,
+            stream=stream,
+            event_malloc=None,
+            event_free=None,
+            event_first_launch=None,
+            event_last_launch=None,
+        )
+        self._all_buffers[buffer.ident] = buffer
+        self._memory_map.map_buffer(buffer)
+        self._live_buffers[buffer.addr] = buffer
+        self._db.insert_data_buffer(buffer)
+
+        op = model.DevMemBufEvent(
+            ident=self._get_operation_primary_key(),
+            buffer_ident=buffer.ident,
+            is_allocation=True,
+        )
+
+        self._db.insert_event_devmem_buf(op)
+
+        event_entity = self._event_writer.add(
+            timestamp,
+            tid,
+            model.EventKind.DEVMEM_BUF,
+            op.ident,
+        )
+
+        buffer.event_malloc = event_entity.ident
+        self.update_buffer_events(buffer)
+
+        return buffer
+
+    def get_buffer_by_addr(self, addr: int) -&gt; model.DataBuffer:
+        buffer = self._memory_map.lookup(addr)
+        if buffer is None:
+            buffer = self.malloc(datetime.now(), 0, addr, 1, 0, unknown=True)
+        return buffer
+
+    def get_buffer_by_id(self, ident: int) -&gt; model.DataBuffer:
+        return self._all_buffers[ident]
+
+    def free(self, timestamp: datetime, tid: int, addr: int):
+        if addr not in self._live_buffers:
+            logging.warn(f&#34;Freeing unknown buffer: 0x{addr:x}&#34;)
+            return
+
+        buffer = self.get_buffer_by_addr(addr)
+        self._memory_map.unmap_buffer(buffer)
+
+        op = model.DevMemBufEvent(
+            ident=self._get_operation_primary_key(),
+            buffer_ident=buffer.ident,
+            is_allocation=False,
+        )
+        self._db.insert_event_devmem_buf(op)
+
+        event_entity = self._event_writer.add(
+            timestamp,
+            tid,
+            model.EventKind.DEVMEM_BUF,
+            op.ident,
+        )
+
+        buffer.event_free = event_entity.ident
+        self.update_buffer_events(buffer)
+        del self._live_buffers[buffer.addr]
+
+        return buffer
+
+    def update_buffer_events(self, buffer: model.DataBuffer):
+        self._needs_meta_update.add(buffer.ident)
+
+    def update_buffer_meta(self, buffer: model.DataBuffer):
+        self._needs_meta_update.add(buffer.ident)
+
+    def finish(self):
+        for buffer_ident in self._needs_meta_update:
+            buffer = self.get_buffer_by_id(buffer_ident)
+            self._db.update_data_buffer_meta(buffer)
+            self._db.update_data_buffer_events(buffer)
+
+    def record_status(
+        self,
+        timestamp: datetime,
+        tid: int,
+        used: int,
+        workspace: int,
+        persistent: int,
+        tag: str,
+    ):
+
+        entity = model.DeviceMemoryShortSummaryEvent(
+            ident=self._get_summary_primary_key(),
+            used=used,
+            workspace=workspace,
+            persistent=persistent,
+            tag=tag,
+        )
+
+        self._db.insert_event_devmem_summary(entity)
+
+        event_entity = self._event_writer.add(
+            timestamp,
+            tid,
+            model.EventKind.DEVMEM_SUMMARY,
+            entity.ident,
+        )</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="towl-db.towl.db.creator.devmem_manager.DevMemManager"><code class="flex name class">
+<span>class <span class="ident">DevMemManager</span></span>
+<span>(</span><span>db: towl.db.store.db.Database, event_writer: towl-db.towl.db.creator.event_writer.EventWriter)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@typechecked
+class DevMemManager:
+    def __init__(self, db: Database, event_writer: EventWriter):
+        self._live_buffers: Dict[int, model.DataBuffer] = {}
+        self._get_buffer_by_addr_primary_key = PrimaryKeyGenerator()
+        self._get_operation_primary_key = PrimaryKeyGenerator()
+        self._get_summary_primary_key = PrimaryKeyGenerator()
+        self._event_writer = event_writer
+        self._db = db
+        self._memory_map = MemoryMap()
+        self._all_buffers = {}
+
+        self._needs_meta_update = set()
+
+    def malloc(
+        self,
+        timestamp: datetime,
+        tid: int,
+        addr: int,
+        size: int,
+        stream: int,
+        *,
+        unknown=False,
+    ):
+        meta = model.DataBufferMeta(unknown=unknown, alloc_frames=[])
+        buffer = model.DataBuffer(
+            ident=self._get_buffer_by_addr_primary_key(),
+            addr=addr,
+            size=size,
+            meta=meta,
+            stream=stream,
+            event_malloc=None,
+            event_free=None,
+            event_first_launch=None,
+            event_last_launch=None,
+        )
+        self._all_buffers[buffer.ident] = buffer
+        self._memory_map.map_buffer(buffer)
+        self._live_buffers[buffer.addr] = buffer
+        self._db.insert_data_buffer(buffer)
+
+        op = model.DevMemBufEvent(
+            ident=self._get_operation_primary_key(),
+            buffer_ident=buffer.ident,
+            is_allocation=True,
+        )
+
+        self._db.insert_event_devmem_buf(op)
+
+        event_entity = self._event_writer.add(
+            timestamp,
+            tid,
+            model.EventKind.DEVMEM_BUF,
+            op.ident,
+        )
+
+        buffer.event_malloc = event_entity.ident
+        self.update_buffer_events(buffer)
+
+        return buffer
+
+    def get_buffer_by_addr(self, addr: int) -&gt; model.DataBuffer:
+        buffer = self._memory_map.lookup(addr)
+        if buffer is None:
+            buffer = self.malloc(datetime.now(), 0, addr, 1, 0, unknown=True)
+        return buffer
+
+    def get_buffer_by_id(self, ident: int) -&gt; model.DataBuffer:
+        return self._all_buffers[ident]
+
+    def free(self, timestamp: datetime, tid: int, addr: int):
+        if addr not in self._live_buffers:
+            logging.warn(f&#34;Freeing unknown buffer: 0x{addr:x}&#34;)
+            return
+
+        buffer = self.get_buffer_by_addr(addr)
+        self._memory_map.unmap_buffer(buffer)
+
+        op = model.DevMemBufEvent(
+            ident=self._get_operation_primary_key(),
+            buffer_ident=buffer.ident,
+            is_allocation=False,
+        )
+        self._db.insert_event_devmem_buf(op)
+
+        event_entity = self._event_writer.add(
+            timestamp,
+            tid,
+            model.EventKind.DEVMEM_BUF,
+            op.ident,
+        )
+
+        buffer.event_free = event_entity.ident
+        self.update_buffer_events(buffer)
+        del self._live_buffers[buffer.addr]
+
+        return buffer
+
+    def update_buffer_events(self, buffer: model.DataBuffer):
+        self._needs_meta_update.add(buffer.ident)
+
+    def update_buffer_meta(self, buffer: model.DataBuffer):
+        self._needs_meta_update.add(buffer.ident)
+
+    def finish(self):
+        for buffer_ident in self._needs_meta_update:
+            buffer = self.get_buffer_by_id(buffer_ident)
+            self._db.update_data_buffer_meta(buffer)
+            self._db.update_data_buffer_events(buffer)
+
+    def record_status(
+        self,
+        timestamp: datetime,
+        tid: int,
+        used: int,
+        workspace: int,
+        persistent: int,
+        tag: str,
+    ):
+
+        entity = model.DeviceMemoryShortSummaryEvent(
+            ident=self._get_summary_primary_key(),
+            used=used,
+            workspace=workspace,
+            persistent=persistent,
+            tag=tag,
+        )
+
+        self._db.insert_event_devmem_summary(entity)
+
+        event_entity = self._event_writer.add(
+            timestamp,
+            tid,
+            model.EventKind.DEVMEM_SUMMARY,
+            entity.ident,
+        )</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="towl-db.towl.db.creator.devmem_manager.DevMemManager.finish"><code class="name flex">
+<span>def <span class="ident">finish</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def finish(self):
+    for buffer_ident in self._needs_meta_update:
+        buffer = self.get_buffer_by_id(buffer_ident)
+        self._db.update_data_buffer_meta(buffer)
+        self._db.update_data_buffer_events(buffer)</code></pre>
+</details>
+</dd>
+<dt id="towl-db.towl.db.creator.devmem_manager.DevMemManager.free"><code class="name flex">
+<span>def <span class="ident">free</span></span>(<span>self, timestamp: datetime.datetime, tid: int, addr: int)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def free(self, timestamp: datetime, tid: int, addr: int):
+    if addr not in self._live_buffers:
+        logging.warn(f&#34;Freeing unknown buffer: 0x{addr:x}&#34;)
+        return
+
+    buffer = self.get_buffer_by_addr(addr)
+    self._memory_map.unmap_buffer(buffer)
+
+    op = model.DevMemBufEvent(
+        ident=self._get_operation_primary_key(),
+        buffer_ident=buffer.ident,
+        is_allocation=False,
+    )
+    self._db.insert_event_devmem_buf(op)
+
+    event_entity = self._event_writer.add(
+        timestamp,
+        tid,
+        model.EventKind.DEVMEM_BUF,
+        op.ident,
+    )
+
+    buffer.event_free = event_entity.ident
+    self.update_buffer_events(buffer)
+    del self._live_buffers[buffer.addr]
+
+    return buffer</code></pre>
+</details>
+</dd>
+<dt id="towl-db.towl.db.creator.devmem_manager.DevMemManager.get_buffer_by_addr"><code class="name flex">
+<span>def <span class="ident">get_buffer_by_addr</span></span>(<span>self, addr: int) ‑> towl.db.store.model.DataBuffer</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_buffer_by_addr(self, addr: int) -&gt; model.DataBuffer:
+    buffer = self._memory_map.lookup(addr)
+    if buffer is None:
+        buffer = self.malloc(datetime.now(), 0, addr, 1, 0, unknown=True)
+    return buffer</code></pre>
+</details>
+</dd>
+<dt id="towl-db.towl.db.creator.devmem_manager.DevMemManager.get_buffer_by_id"><code class="name flex">
+<span>def <span class="ident">get_buffer_by_id</span></span>(<span>self, ident: int) ‑> towl.db.store.model.DataBuffer</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_buffer_by_id(self, ident: int) -&gt; model.DataBuffer:
+    return self._all_buffers[ident]</code></pre>
+</details>
+</dd>
+<dt id="towl-db.towl.db.creator.devmem_manager.DevMemManager.malloc"><code class="name flex">
+<span>def <span class="ident">malloc</span></span>(<span>self, timestamp: datetime.datetime, tid: int, addr: int, size: int, stream: int, *, unknown=False)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def malloc(
+    self,
+    timestamp: datetime,
+    tid: int,
+    addr: int,
+    size: int,
+    stream: int,
+    *,
+    unknown=False,
+):
+    meta = model.DataBufferMeta(unknown=unknown, alloc_frames=[])
+    buffer = model.DataBuffer(
+        ident=self._get_buffer_by_addr_primary_key(),
+        addr=addr,
+        size=size,
+        meta=meta,
+        stream=stream,
+        event_malloc=None,
+        event_free=None,
+        event_first_launch=None,
+        event_last_launch=None,
+    )
+    self._all_buffers[buffer.ident] = buffer
+    self._memory_map.map_buffer(buffer)
+    self._live_buffers[buffer.addr] = buffer
+    self._db.insert_data_buffer(buffer)
+
+    op = model.DevMemBufEvent(
+        ident=self._get_operation_primary_key(),
+        buffer_ident=buffer.ident,
+        is_allocation=True,
+    )
+
+    self._db.insert_event_devmem_buf(op)
+
+    event_entity = self._event_writer.add(
+        timestamp,
+        tid,
+        model.EventKind.DEVMEM_BUF,
+        op.ident,
+    )
+
+    buffer.event_malloc = event_entity.ident
+    self.update_buffer_events(buffer)
+
+    return buffer</code></pre>
+</details>
+</dd>
+<dt id="towl-db.towl.db.creator.devmem_manager.DevMemManager.record_status"><code class="name flex">
+<span>def <span class="ident">record_status</span></span>(<span>self, timestamp: datetime.datetime, tid: int, used: int, workspace: int, persistent: int, tag: str)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def record_status(
+    self,
+    timestamp: datetime,
+    tid: int,
+    used: int,
+    workspace: int,
+    persistent: int,
+    tag: str,
+):
+
+    entity = model.DeviceMemoryShortSummaryEvent(
+        ident=self._get_summary_primary_key(),
+        used=used,
+        workspace=workspace,
+        persistent=persistent,
+        tag=tag,
+    )
+
+    self._db.insert_event_devmem_summary(entity)
+
+    event_entity = self._event_writer.add(
+        timestamp,
+        tid,
+        model.EventKind.DEVMEM_SUMMARY,
+        entity.ident,
+    )</code></pre>
+</details>
+</dd>
+<dt id="towl-db.towl.db.creator.devmem_manager.DevMemManager.update_buffer_events"><code class="name flex">
+<span>def <span class="ident">update_buffer_events</span></span>(<span>self, buffer: towl.db.store.model.DataBuffer)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_buffer_events(self, buffer: model.DataBuffer):
+    self._needs_meta_update.add(buffer.ident)</code></pre>
+</details>
+</dd>
+<dt id="towl-db.towl.db.creator.devmem_manager.DevMemManager.update_buffer_meta"><code class="name flex">
+<span>def <span class="ident">update_buffer_meta</span></span>(<span>self, buffer: towl.db.store.model.DataBuffer)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_buffer_meta(self, buffer: model.DataBuffer):
+    self._needs_meta_update.add(buffer.ident)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="towl-db.towl.db.creator.devmem_manager.MemoryMap"><code class="flex name class">
+<span>class <span class="ident">MemoryMap</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MemoryMap:
+    def __init__(self):
+        self._itree = IntervalTree()
+
+    def map_buffer(self, buffer: model.DataBuffer):
+        begin = buffer.addr
+        end = buffer.addr + buffer.size
+        self._itree.chop(begin, end)
+        self._itree.addi(begin, end, buffer)
+
+    def unmap_buffer(self, buffer: model.DataBuffer):
+        begin = buffer.addr
+        end = buffer.addr + buffer.size
+        self._itree.chop(begin, end)
+
+    def lookup(self, addr: int):
+        xs = self._itree.at(addr)
+        if len(xs) == 1:
+            return list(xs)[0].data
+        if len(xs) == 0:
+            return None
+        raise Exception(
+            f&#34;internal error: inconsistent data: len(xs)={len(xs)}&#34;)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="towl-db.towl.db.creator.devmem_manager.MemoryMap.lookup"><code class="name flex">
+<span>def <span class="ident">lookup</span></span>(<span>self, addr: int)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def lookup(self, addr: int):
+    xs = self._itree.at(addr)
+    if len(xs) == 1:
+        return list(xs)[0].data
+    if len(xs) == 0:
+        return None
+    raise Exception(
+        f&#34;internal error: inconsistent data: len(xs)={len(xs)}&#34;)</code></pre>
+</details>
+</dd>
+<dt id="towl-db.towl.db.creator.devmem_manager.MemoryMap.map_buffer"><code class="name flex">
+<span>def <span class="ident">map_buffer</span></span>(<span>self, buffer: towl.db.store.model.DataBuffer)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def map_buffer(self, buffer: model.DataBuffer):
+    begin = buffer.addr
+    end = buffer.addr + buffer.size
+    self._itree.chop(begin, end)
+    self._itree.addi(begin, end, buffer)</code></pre>
+</details>
+</dd>
+<dt id="towl-db.towl.db.creator.devmem_manager.MemoryMap.unmap_buffer"><code class="name flex">
+<span>def <span class="ident">unmap_buffer</span></span>(<span>self, buffer: towl.db.store.model.DataBuffer)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def unmap_buffer(self, buffer: model.DataBuffer):
+    begin = buffer.addr
+    end = buffer.addr + buffer.size
+    self._itree.chop(begin, end)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="towl-db.towl.db.creator" href="index.html">towl-db.towl.db.creator</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="towl-db.towl.db.creator.devmem_manager.DevMemManager" href="#towl-db.towl.db.creator.devmem_manager.DevMemManager">DevMemManager</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.creator.devmem_manager.DevMemManager.finish" href="#towl-db.towl.db.creator.devmem_manager.DevMemManager.finish">finish</a></code></li>
+<li><code><a title="towl-db.towl.db.creator.devmem_manager.DevMemManager.free" href="#towl-db.towl.db.creator.devmem_manager.DevMemManager.free">free</a></code></li>
+<li><code><a title="towl-db.towl.db.creator.devmem_manager.DevMemManager.get_buffer_by_addr" href="#towl-db.towl.db.creator.devmem_manager.DevMemManager.get_buffer_by_addr">get_buffer_by_addr</a></code></li>
+<li><code><a title="towl-db.towl.db.creator.devmem_manager.DevMemManager.get_buffer_by_id" href="#towl-db.towl.db.creator.devmem_manager.DevMemManager.get_buffer_by_id">get_buffer_by_id</a></code></li>
+<li><code><a title="towl-db.towl.db.creator.devmem_manager.DevMemManager.malloc" href="#towl-db.towl.db.creator.devmem_manager.DevMemManager.malloc">malloc</a></code></li>
+<li><code><a title="towl-db.towl.db.creator.devmem_manager.DevMemManager.record_status" href="#towl-db.towl.db.creator.devmem_manager.DevMemManager.record_status">record_status</a></code></li>
+<li><code><a title="towl-db.towl.db.creator.devmem_manager.DevMemManager.update_buffer_events" href="#towl-db.towl.db.creator.devmem_manager.DevMemManager.update_buffer_events">update_buffer_events</a></code></li>
+<li><code><a title="towl-db.towl.db.creator.devmem_manager.DevMemManager.update_buffer_meta" href="#towl-db.towl.db.creator.devmem_manager.DevMemManager.update_buffer_meta">update_buffer_meta</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="towl-db.towl.db.creator.devmem_manager.MemoryMap" href="#towl-db.towl.db.creator.devmem_manager.MemoryMap">MemoryMap</a></code></h4>
+<ul class="">
+<li><code><a title="towl-db.towl.db.creator.devmem_manager.MemoryMap.lookup" href="#towl-db.towl.db.creator.devmem_manager.MemoryMap.lookup">lookup</a></code></li>
+<li><code><a title="towl-db.towl.db.creator.devmem_manager.MemoryMap.map_buffer" href="#towl-db.towl.db.creator.devmem_manager.MemoryMap.map_buffer">map_buffer</a></code></li>
+<li><code><a title="towl-db.towl.db.creator.devmem_manager.MemoryMap.unmap_buffer" href="#towl-db.towl.db.creator.devmem_manager.MemoryMap.unmap_buffer">unmap_buffer</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
