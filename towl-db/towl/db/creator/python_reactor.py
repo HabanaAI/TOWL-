@@ -20,44 +20,44 @@ from towl.db.events import Event_PythonGeneric, Event_PythonTowlCmd
 from towl.db.store import model
 from towl.db.store import Database
 from typing import List, Any, Optional, Dict
-from pydantic import BaseModel
 from .primary_key_generator import PrimaryKeyGenerator
 from .event_writer import EventWriter
 from datetime import datetime
+import msgspec
 
 
-class AttachAllocationPointPayload(BaseModel):
+class AttachAllocationPointPayload(msgspec.Struct):
     addr: int
     frames: List[model.FrameInfo]
 
 
-class FrameInfo(BaseModel):
+class FrameInfo(msgspec.Struct):
     filename: str
     line: int
     funcname: str
 
 
-class ScriptLogPayload(BaseModel):
+class ScriptLogPayload(msgspec.Struct):
     message: str
     frame: FrameInfo
 
 
-class FrameVariables(BaseModel):
+class FrameVariables(msgspec.Struct):
     frame: FrameInfo
     memory: Dict[str, Any]
 
 
-class FrameLogContent(BaseModel):
+class FrameLogContent(msgspec.Struct):
     stack: List[FrameVariables]
 
 
-class FrameLogPayload(BaseModel):
+class FrameLogPayload(msgspec.Struct):
     message: str
     frame: FrameInfo
     stack: List[FrameVariables]
 
 
-class MarkCodePayload(BaseModel):
+class MarkCodePayload(msgspec.Struct):
     message: str
     frame: Optional[FrameInfo]
     mark_id: int
@@ -80,20 +80,34 @@ class PythonReactor:
 
     def react_python_towlcmd(self, event: Event_PythonTowlCmd):
         if event.command == "attach-allocation-point":
-            payload = AttachAllocationPointPayload.model_validate(
-                event.payload)
+            payload = msgspec.convert(
+                event.payload,
+                type=AttachAllocationPointPayload,
+            )
             self._handle_attach_allocation_point(payload)
         elif event.command == "script-log":
-            payload = ScriptLogPayload.model_validate(event.payload)
+            payload = msgspec.convert(
+                event.payload,
+                type=ScriptLogPayload,
+            )
             self._handle_scriptlog(event.timestamp, event.tid, payload)
         elif event.command == "frame-log":
-            payload = FrameLogPayload.model_validate(event.payload)
+            payload = msgspec.convert(
+                event.payload,
+                type=FrameLogPayload,
+            )
             self._handle_framelog(event.timestamp, event.tid, payload)
         elif event.command == "mark-code-enter":
-            payload = MarkCodePayload.model_validate(event.payload)
+            payload = msgspec.convert(
+                event.payload,
+                type=MarkCodePayload,
+            )
             self._handle_mark_code_enter(event.timestamp, event.tid, payload)
         elif event.command == "mark-code-exit":
-            payload = MarkCodePayload.model_validate(event.payload)
+            payload = msgspec.convert(
+                event.payload,
+                type=MarkCodePayload,
+            )
             self._handle_mark_code_exit(event.timestamp, event.tid, payload)
         else:
             raise RuntimeError(f"Unsupported command: {event.command}")
@@ -178,7 +192,7 @@ class PythonReactor:
             new_fvars = FrameVariables(frame=fvars.frame, memory=memory)
             stack.append(new_fvars)
 
-        content = FrameLogContent(stack=stack).model_dump_json()
+        content = msgspec.json.encode(FrameLogContent(stack=stack))
         entity = model.PythonLogEvent(
             ident=self._get_primary_key(),
             command="frame-log",

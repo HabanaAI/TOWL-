@@ -22,6 +22,7 @@ from .data import Event_RecipeLaunch, Event_RecipeFinished, Event_RecipeLaunchBu
 from .data import Event_PythonGeneric, Event_PythonTowlCmd
 from typing import Generator, Any
 from .data import TowlCommand
+import msgspec
 
 
 class EventReader:
@@ -41,9 +42,8 @@ class EventReader:
         import json
 
         if content.startswith("TOWL-CMD: "):
-            content = content[len("TOWL-CMD: "):]
-            d = json.loads(content)
-            content = TowlCommand.model_validate(d)
+            content = content[len("TOWL-CMD: ") :]
+            content = msgspec.json.decode(content, type=TowlCommand)
             yield Event_PythonTowlCmd(
                 log_entry.tid,
                 log_entry.timestamp,

@@ -21,6 +21,7 @@ from .timerange import EventTimeRange
 from typeguard import typechecked
 from towl.db.store import model
 import pandas as pd
+import msgspec
 
 
 @typechecked
@@ -69,9 +70,9 @@ class RecipeLaunch:
         Returns pandas DataFrame representing buffers passed to recipe
         for this launch.
         """
-        d = {x: [] for x in model.DataRecipeLaunchBuffer.model_fields}
+        d = {x: [] for x in model.DataRecipeLaunchBuffer.__struct_fields__}
         for entry in self.buffer_ids:
-            for k, v in entry:
+            for k, v in msgspec.to_builtins(entry).items():
                 d[k].append(v)
 
         df = pd.DataFrame.from_dict(d)

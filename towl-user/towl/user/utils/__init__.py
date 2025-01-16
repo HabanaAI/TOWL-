@@ -14,7 +14,6 @@
 # limitations under the License.
 ################################################################################
 
-from . import pydantic
 from . import file
 from . import strings
 from .strings import memory_str
