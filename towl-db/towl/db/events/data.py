@@ -14,11 +14,11 @@
 # limitations under the License.
 ################################################################################
 
-from pydantic import BaseModel
 from typing import NamedTuple, Optional, Any
 from datetime import datetime
 from enum import Enum
 from towl.db.store import model
+import msgspec
 
 
 class LogEntry(NamedTuple):
@@ -182,6 +182,6 @@ class Event_RecipeFinished(Event):
         return f"Event_RecipeFinished({aux}; handle=0x{self.handle:x})"
 
 
-class TowlCommand(BaseModel):
+class TowlCommand(msgspec.Struct):
     command: str
     payload: Any

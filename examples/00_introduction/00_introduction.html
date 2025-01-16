@@ -3,7 +3,34 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>00_introduction</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>00_introduction</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script>
+(function() {
+  function addWidgetsRenderer() {
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var scriptElement = document.createElement('script');
+    
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        
+        var widgetRendererSrc = 'https://unpkg.com/@jupyter-js-widgets@*/dist/embed.js';
+        
+      }
+    } catch(e) {}
+
+    scriptElement.src = widgetRendererSrc;
+    document.body.appendChild(scriptElement);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7711,7 +7738,7 @@ python -m towl.db create from-log-file [path to towl_log.txt] -o db/mydb [--over
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7735,6 +7762,30 @@ python -m towl.db create from-log-file [path to towl_log.txt] -o db/mydb [--over
     <span class="n">do_nothing_if_exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jupyter-widgets jp-OutputArea-output" id="8e9955af-2633-456a-826b-359ba9051eec" tabindex="0">
+<script type="text/javascript">
+var element = document.getElementById('8e9955af-2633-456a-826b-359ba9051eec');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "bbc5cba5207b4a5fb274a8d1e43ab022"}
+</script>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Finishing
+</pre>
 </div>
 </div>
 </div>
@@ -8060,7 +8111,7 @@ indicating how much memory is used according to the bridge device memory manager
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<table class="display nowrap" data-quarto-disable-processing="true" id="itables_bb88684d_f365_4fed_aaab_8ca26488bec3" style="table-layout:auto;width:auto;margin:auto;caption-side:bottom">
+<table class="display nowrap" data-quarto-disable-processing="true" id="itables_e537b334_2120_4c86_8c89_9d8b4fa341d4" style="table-layout:auto;width:auto;margin:auto;caption-side:bottom">
 <thead>
 <tr style="text-align: right;">
 <th></th>
@@ -8084,7 +8135,6 @@ indicating how much memory is used according to the bridge device memory manager
 </tr>
 </thead><tbody><tr>
 <td style="vertical-align:middle; text-align:left">
-<div style="float:left; margin-right: 10px;">
 <a href="https://mwouts.github.io/itables/"><svg class="main-svg" style="font-family: 'Droid Sans', sans-serif;" viewbox="0 0 500 400" width="64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g style="fill:#d9d7fc">
 <path d="M100,400H500V357H100Z"></path>
@@ -8138,18 +8188,15 @@ indicating how much memory is used according to the bridge device memory manager
 </g>
 </svg>
 </a>
-</div>
-<div>
-Loading ITables v2.2.2 from the internet...
-(need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)</div></td>
-</tr></tbody></table></div>
-
-
+Loading ITables v2.2.4 from the internet...
+(need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)</td>
+</tr></tbody>
+</table>
 <link href="https://www.unpkg.com/dt_for_itables@2.0.13/dt_bundle.css" rel="stylesheet"/>
 <script type="module">
     import {DataTable, jQuery as $} from 'https://www.unpkg.com/dt_for_itables@2.0.13/dt_bundle.js';
 
-    document.querySelectorAll("#itables_bb88684d_f365_4fed_aaab_8ca26488bec3:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_e537b334_2120_4c86_8c89_9d8b4fa341d4:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
@@ -8168,7 +8215,7 @@ Loading ITables v2.2.2 from the internet...
 </div>
 </div>
 </div>
-
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8769,7 +8816,7 @@ $$ (a, b) + (a', b') = (\min(a, a'), \max(b, b'))$$</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<table class="display nowrap" data-quarto-disable-processing="true" id="itables_453558d6_ffad_4ab6_9e79_57c5f2c7c1cb" style="table-layout:auto;width:auto;margin:auto;caption-side:bottom">
+<table class="display nowrap" data-quarto-disable-processing="true" id="itables_35443280_ac66_40f8_97bd_b437f229ce81" style="table-layout:auto;width:auto;margin:auto;caption-side:bottom">
 <thead>
 <tr style="text-align: right;">
 <th></th>
@@ -8807,7 +8854,6 @@ $$ (a, b) + (a', b') = (\min(a, a'), \max(b, b'))$$</p>
 </tr>
 </thead><tbody><tr>
 <td style="vertical-align:middle; text-align:left">
-<div style="float:left; margin-right: 10px;">
 <a href="https://mwouts.github.io/itables/"><svg class="main-svg" style="font-family: 'Droid Sans', sans-serif;" viewbox="0 0 500 400" width="64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g style="fill:#d9d7fc">
 <path d="M100,400H500V357H100Z"></path>
@@ -8861,18 +8907,15 @@ $$ (a, b) + (a', b') = (\min(a, a'), \max(b, b'))$$</p>
 </g>
 </svg>
 </a>
-</div>
-<div>
-Loading ITables v2.2.2 from the internet...
-(need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)</div></td>
-</tr></tbody></table></div>
-
-
+Loading ITables v2.2.4 from the internet...
+(need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)</td>
+</tr></tbody>
+</table>
 <link href="https://www.unpkg.com/dt_for_itables@2.0.13/dt_bundle.css" rel="stylesheet"/>
 <script type="module">
     import {DataTable, jQuery as $} from 'https://www.unpkg.com/dt_for_itables@2.0.13/dt_bundle.js';
 
-    document.querySelectorAll("#itables_453558d6_ffad_4ab6_9e79_57c5f2c7c1cb:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_35443280_ac66_40f8_97bd_b437f229ce81:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
@@ -8891,7 +8934,7 @@ Loading ITables v2.2.2 from the internet...
 </div>
 </div>
 </div>
-
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8952,7 +8995,7 @@ Loading ITables v2.2.2 from the internet...
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<table class="display nowrap" data-quarto-disable-processing="true" id="itables_c8e6124d_ea77_4fd1_97a9_82df655e8a41" style="table-layout:auto;width:auto;margin:auto;caption-side:bottom">
+<table class="display nowrap" data-quarto-disable-processing="true" id="itables_b4eac7ec_1942_4577_8227_26c853cd093e" style="table-layout:auto;width:auto;margin:auto;caption-side:bottom">
 <thead>
 <tr style="text-align: right;">
 <th></th>
@@ -8978,7 +9021,6 @@ Loading ITables v2.2.2 from the internet...
 </tr>
 </thead><tbody><tr>
 <td style="vertical-align:middle; text-align:left">
-<div style="float:left; margin-right: 10px;">
 <a href="https://mwouts.github.io/itables/"><svg class="main-svg" style="font-family: 'Droid Sans', sans-serif;" viewbox="0 0 500 400" width="64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g style="fill:#d9d7fc">
 <path d="M100,400H500V357H100Z"></path>
@@ -9032,18 +9074,15 @@ Loading ITables v2.2.2 from the internet...
 </g>
 </svg>
 </a>
-</div>
-<div>
-Loading ITables v2.2.2 from the internet...
-(need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)</div></td>
-</tr></tbody></table></div>
-
-
+Loading ITables v2.2.4 from the internet...
+(need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)</td>
+</tr></tbody>
+</table>
 <link href="https://www.unpkg.com/dt_for_itables@2.0.13/dt_bundle.css" rel="stylesheet"/>
 <script type="module">
     import {DataTable, jQuery as $} from 'https://www.unpkg.com/dt_for_itables@2.0.13/dt_bundle.js';
 
-    document.querySelectorAll("#itables_c8e6124d_ea77_4fd1_97a9_82df655e8a41:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_b4eac7ec_1942_4577_8227_26c853cd093e:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
@@ -9062,7 +9101,7 @@ Loading ITables v2.2.2 from the internet...
 </div>
 </div>
 </div>
-
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -9415,4 +9454,7 @@ It checks if the observed tensors have already allocated storage and reports it 
 </div>
 </main>
 </body>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"ea511eac649e4ab3bc1b2a542db4db3c": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets\/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets\/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "93d0c4a978e940e4b98675c1b0877dde": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets\/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets\/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "9479f5aad80a4816ac7926f66bdb385c": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets\/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets\/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets\/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_ea511eac649e4ab3bc1b2a542db4db3c", "max": 5346980.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_93d0c4a978e940e4b98675c1b0877dde", "tabbable": null, "tooltip": null, "value": 5346980.0}}, "812f6dd02f1e4e03b0e02555ecd5459c": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets\/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets\/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "85362390927d4007b33172ae7b8a2e80": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets\/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets\/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "992bcf29459246c18ff99673bd838ffd": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets\/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets\/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets\/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_812f6dd02f1e4e03b0e02555ecd5459c", "placeholder": "\u200b", "style": "IPY_MODEL_85362390927d4007b33172ae7b8a2e80", "tabbable": null, "tooltip": null, "value": "reading:\u2007100%"}}, "6d0f128472fd43abb6b01b03dfcc168e": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets\/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets\/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ff7e4b124fbd4669ba791f1c323684b8": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets\/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets\/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "fa2250777b664084a0bb5c32059583a1": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets\/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets\/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets\/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_6d0f128472fd43abb6b01b03dfcc168e", "placeholder": "\u200b", "style": "IPY_MODEL_ff7e4b124fbd4669ba791f1c323684b8", "tabbable": null, "tooltip": null, "value": "\u20075.10M\/5.10M\u2007[00:47&lt;00:00,\u2007110kB\/s]"}}, "15c4232ec7d7409493031bc90370e841": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets\/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets\/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "bbc5cba5207b4a5fb274a8d1e43ab022": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets\/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets\/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets\/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_992bcf29459246c18ff99673bd838ffd", "IPY_MODEL_9479f5aad80a4816ac7926f66bdb385c", "IPY_MODEL_fa2250777b664084a0bb5c32059583a1"], "layout": "IPY_MODEL_15c4232ec7d7409493031bc90370e841", "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}
+</script>
 </html>

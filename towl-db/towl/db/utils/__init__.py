@@ -14,6 +14,5 @@
 # limitations under the License.
 ################################################################################
 
-from . import pydantic
 from . import file
 from . import typechecked

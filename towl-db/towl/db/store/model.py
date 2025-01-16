@@ -16,8 +16,8 @@
 
 from typing import NamedTuple, List, Optional
 import enum
-from towl.db.utils.pydantic import ConfiguredBaseModel
 from datetime import datetime
+import msgspec
 
 
 class EventKind(enum.IntEnum):
@@ -54,7 +54,7 @@ class DevMemBufFreeEvent(NamedTuple):
     pass
 
 
-class FrameInfo(ConfiguredBaseModel):
+class FrameInfo(msgspec.Struct):
     filename: str
     funcname: str
     line: int
@@ -67,13 +67,13 @@ class FrameInfo(ConfiguredBaseModel):
         return FrameInfo(filename=filename, line=line, funcname=funcname)
 
 
-class DataBufferMeta(ConfiguredBaseModel):
+class DataBufferMeta(msgspec.Struct):
     unknown: bool
 
     alloc_frames: List[List[FrameInfo]] = []
 
 
-class DataBuffer(ConfiguredBaseModel):
+class DataBuffer(msgspec.Struct):
     ident: int
     addr: int
     size: int
@@ -92,7 +92,7 @@ class DataBuffer(ConfiguredBaseModel):
             return f"BUF_{self.ident}"
 
 
-class DataRecipeLaunchBuffer(ConfiguredBaseModel):
+class DataRecipeLaunchBuffer(msgspec.Struct):
     buffer: int
     offset: int
     index: int
@@ -103,7 +103,7 @@ class DataRecipeLaunchMeta(NamedTuple):
     pass
 
 
-class DataRecipeLaunch(ConfiguredBaseModel):
+class DataRecipeLaunch(msgspec.Struct):
     ident: int
     handle: int
     workspace: int
@@ -118,7 +118,7 @@ class DataRecipeLaunch(ConfiguredBaseModel):
         return f"LAUNCH_{self.ident}"
 
 
-class PythonLogEvent(ConfiguredBaseModel):
+class PythonLogEvent(msgspec.Struct):
     ident: int
     command: str
     message: Optional[str]

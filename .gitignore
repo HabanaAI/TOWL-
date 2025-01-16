@@ -1,0 +1,5 @@
+*.pyc
+*.db
+*.swp
+__pycache__
+dist

@@ -21,6 +21,7 @@ from towl.db.store import model
 import json
 from typeguard import typechecked
 from typing import Optional
+import msgspec
 
 
 class Database:
@@ -69,8 +70,7 @@ class Database:
         self.close()
 
     def insert_event_devmem_summary(self, d: model.DeviceMemoryShortSummaryEvent):
-        self._db.execute(
-            sql.EventsInserting.insert_devmem_summary, d._asdict())
+        self._db.execute(sql.EventsInserting.insert_devmem_summary, d._asdict())
 
     def insert_event_devmem_buf(self, d: model.DevMemBufEvent):
         self._db.execute(sql.EventsInserting.insert_devmem_buf, d._asdict())
@@ -82,7 +82,7 @@ class Database:
         self._db.execute(sql.EventsInserting.insert_event, row)
 
     def insert_event_python(self, d: model.PythonLogEvent):
-        row = dict(d)
+        row = msgspec.to_builtins(d)
         self._db.execute(sql.Python.insert_python, row)
 
     def query_python_log(self, begin: int, end: int):
@@ -99,15 +99,14 @@ class Database:
         params = {
             "mark_id": mark_id,
         }
-        cursor = self._db.execute(
-            sql.Python.query_python_log_by_mark_id, params)
+        cursor = self._db.execute(sql.Python.query_python_log_by_mark_id, params)
         cursor.row_factory = sqlite3.Row
 
         return cursor
 
     def insert_data_buffer(self, d: model.DataBuffer):
-        row = dict(d)
-        row["meta"] = d.meta.json()
+        row = msgspec.to_builtins(d)
+        row["meta"] = msgspec.json.encode(d.meta).decode()
         row["unknown"] = d.meta.unknown
         row["addr"] = row["addr"] // 2
         self._db.execute(sql.Buffers.insert_buffer, row)
@@ -126,7 +125,7 @@ class Database:
     def update_data_buffer_meta(self, d: model.DataBuffer):
         row = {
             "ident": d.ident,
-            "meta": d.meta.json(),
+            "meta": msgspec.json.encode(d.meta).decode(),
         }
 
         self._db.execute(sql.Buffers.update_buffer_meta, row)
@@ -140,9 +139,9 @@ class Database:
         self._db.execute(sql.Launches.update_launch_events, row)
 
     def insert_data_launch(self, d: model.DataRecipeLaunch):
-        row = dict(d)
+        row = msgspec.to_builtins(d)
         del row["buffers"]
-        row["meta"] = json.dumps(d.meta)
+        row["meta"] = msgspec.json.encode(d.meta).decode()
         self._db.execute(sql.Launches.insert_launch, row)
 
         rows = [
@@ -170,8 +169,7 @@ class Database:
             )
         else:
             return self._db.execute(
-                sql.Query.query_devmem_summary_tag, dict(
-                    begin=begin, end=end, tag=tag)
+                sql.Query.query_devmem_summary_tag, dict(begin=begin, end=end, tag=tag)
             )
 
     def query_devmem_bufs(self, begin: int, end: int):
@@ -212,13 +210,11 @@ class Database:
 
     def query_launch_by_event_ident(self, event_ident: int):
         cursor = self._db.execute(
-            sql.Launches.query_launch_by_event_id, dict(
-                event_ident=event_ident)
+            sql.Launches.query_launch_by_event_id, dict(event_ident=event_ident)
         )
         cursor = list(cursor)
         if len(cursor) == 0:
-            raise KeyError(
-                f"Cannot find launch with event ident {event_ident}")
+            raise KeyError(f"Cannot find launch with event ident {event_ident}")
 
         (
             event_ident,
@@ -245,8 +241,7 @@ class Database:
 
     def query_launch_by_launch_id(self, launch_ident: int):
         cursor = self._db.execute(
-            sql.Launches.query_launch_by_launch_id, dict(
-                launch_ident=launch_ident)
+            sql.Launches.query_launch_by_launch_id, dict(launch_ident=launch_ident)
         )
         cursor = list(cursor)
         if len(cursor) == 0:
@@ -279,8 +274,7 @@ class Database:
         launch_ident,
     ):
         cursor = self._db.execute(
-            sql.Launches.query_launch_bufs_by_launch_id, dict(
-                launch_ident=launch_ident)
+            sql.Launches.query_launch_bufs_by_launch_id, dict(launch_ident=launch_ident)
         )
         cursor.row_factory = sqlite3.Row
 
@@ -310,8 +304,7 @@ class Database:
     ):
         launch_buffers = []
         cursor = self._db.execute(
-            sql.Launches.query_launch_bufs_by_launch_id, dict(
-                launch_ident=ident)
+            sql.Launches.query_launch_bufs_by_launch_id, dict(launch_ident=ident)
         )
         cursor.row_factory = sqlite3.Row
         for row in cursor:
